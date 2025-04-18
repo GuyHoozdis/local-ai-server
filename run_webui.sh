@@ -6,7 +6,7 @@
 PORT=7772
 NAME=open-webui
 IMAGE=ghcr.io/open-webui/open-webui
-VERSION=v0.6.2
+VERSION=v0.6.5
 
 
 if [ ! -S ~/.docker/run/docker.sock ]; then
@@ -29,14 +29,6 @@ fi
 
 
 echo "Starting OpenWebUI container..."
-# XXX: I'm changing `main` to a pinned version.  With `main`
-# it isn't picking up the latest version, like I expected.
-# I'm getting notifications of a new version available.
-# Since I'm getting the notifications, because the setting
-# "Toast notifications for new updates" is enabled, I will
-# use that to know when I need to come here and update the
-# pinned version.
-
 docker run -d \
   -p $PORT:8080 \
   --add-host=host.docker.internal:host-gateway \
