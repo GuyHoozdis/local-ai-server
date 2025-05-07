@@ -3,10 +3,10 @@
 # TODO: Take these from env vars or as parameters.
 # TODO: Add ENV=dev to the env vars to enable acces to docs
 #  https://docs.openwebui.com/getting-started/advanced-topics/api-endpoints/#swagger-documentation-links
-PORT=7772
-NAME=open-webui
+PORT=${PORT:-7772}
+NAME=${NAME:-open-webui}
 IMAGE=ghcr.io/open-webui/open-webui
-VERSION=v0.6.5
+VERSION=v0.6.7
 
 
 if [ ! -S ~/.docker/run/docker.sock ]; then
