@@ -32,10 +32,11 @@ echo "Starting OpenWebUI container..."
 docker run -d \
   -p $PORT:8080 \
   --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data \
+  -v $PWD/data:/app/backend/data \
   --rm \
   --name ${NAME} \
   ${IMAGE}:${VERSION}
+
 
 
 if [ $? -eq 0 ]; then
