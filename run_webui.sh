@@ -6,7 +6,7 @@
 PORT=${PORT:-7772}
 NAME=${NAME:-open-webui}
 IMAGE=ghcr.io/open-webui/open-webui
-VERSION=v0.8.3
+VERSION=v0.8.5
 
 
 if [ ! -S ~/.docker/run/docker.sock ]; then
