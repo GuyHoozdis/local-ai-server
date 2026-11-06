@@ -5,6 +5,7 @@
 # requires-python = ">=3.11"
 # dependencies = [
 #   "httpie",
+#   "pydantic>=2,<3",
 #   "opentelemetry-sdk",
 #   "opentelemetry-exporter-otlp-proto-http",
 # ]
@@ -20,7 +21,7 @@ import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any, Literal
 
 from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
 from opentelemetry.exporter.otlp.proto.http.metric_exporter import OTLPMetricExporter
@@ -32,11 +33,94 @@ from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from pydantic import AwareDatetime, BaseModel, BeforeValidator, ConfigDict, Field, JsonValue, StrictInt, StrictStr
 
-__all__ = ["collect_inventory", "main", "parse_sections", "write_inventory"]
+__all__ = ["InventoryV1", "collect_inventory", "inventory_schema", "main", "parse_sections", "write_inventory"]
 
 logger = logging.getLogger("ollama.inventory")
 ANSI_ESCAPE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
+
+NonEmptyString = Annotated[StrictStr, Field(min_length=1)]
+
+
+def timestamp_string(value: object) -> str:
+    """Require JSON date-time strings rather than Pydantic's numeric epoch coercion."""
+    if not isinstance(value, str) or not re.fullmatch(
+        r"\d{4}-\d{2}-\d{2}[Tt]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:[Zz]|[+-]\d{2}:\d{2})", value
+    ):
+        raise ValueError("Expected an ISO 8601 date-time string with timezone")
+    return value
+
+
+Timestamp = Annotated[AwareDatetime, BeforeValidator(timestamp_string)]
+
+
+class InventoryObject(BaseModel):
+    """Reject unknown fields in the inventory-owned contract."""
+
+    model_config = ConfigDict(extra="forbid")
+
+
+class PullResult(InventoryObject):
+    """Record a pull decision or attempt, independent of manifest modification."""
+
+    status: Literal["not_requested", "skipped", "succeeded", "failed"]
+    attempted_at: Timestamp | None = None
+    finished_at: Timestamp | None = None
+    reason: StrictStr | None = None
+    error: StrictStr | None = None
+
+
+class InspectionError(InventoryObject):
+    """Describe a failed inspection without discarding the model record."""
+
+    source: Literal["cli", "api", "snapshot"]
+    error: NonEmptyString
+
+
+class ModelRecord(InventoryObject):
+    """Fields shared by installed and concurrently removed models."""
+
+    name: NonEmptyString
+    details: dict[str, list[StrictStr]]
+    inspection_errors: list[InspectionError]
+    pull: PullResult
+    last_pull: PullResult | None = None
+
+
+class InstalledModelRecord(ModelRecord):
+    """Locally observed manifest identity and flexible upstream metadata."""
+
+    digest: Annotated[StrictStr, Field(pattern=r"^[0-9a-f]{64}$")]
+    size_bytes: Annotated[StrictInt, Field(ge=0)]
+    updated: Timestamp
+    observed_at: Timestamp
+    metadata: dict[str, JsonValue]
+
+
+class MissingModelRecord(ModelRecord):
+    """A model removed before its manifest could be inspected."""
+
+    inspection_errors: Annotated[list[InspectionError], Field(min_length=1)]
+
+
+class InventoryV1(InventoryObject):
+    """Version 1 of the inventory, including incomplete checkpoints."""
+
+    schema_version: Literal[1]
+    digest_algorithm: Literal["sha256"]
+    started_at: Timestamp
+    generated_at: Timestamp | None
+    status: Literal["in_progress", "completed", "completed_with_errors"]
+    ollama_version: NonEmptyString
+    research_metadata: dict[str, JsonValue]
+    expected_models: list[NonEmptyString]
+    models: list[InstalledModelRecord | MissingModelRecord]
+
+
+def inventory_schema() -> dict[str, Any]:
+    """Generate the portable schema from the runtime validation models."""
+    return {"$schema": "https://json-schema.org/draft/2020-12/schema", **InventoryV1.model_json_schema()}
 
 
 def now() -> str:
@@ -135,12 +219,18 @@ def parse_sections(output: str) -> dict[str, list[str]]:
 
 
 def write_inventory(path: Path, inventory: dict[str, Any]) -> None:
-    """Replace an inventory atomically without truncating an earlier snapshot."""
+    """Validate before replacing an inventory, preserving timestamp precision."""
+    InventoryV1.model_validate(inventory)
+    write_json(path, inventory)
+
+
+def write_json(path: Path, content: dict[str, Any]) -> None:
+    """Replace JSON atomically without truncating an earlier snapshot."""
     temporary: Path | None = None
     try:
         with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent, delete=False) as handle:
             temporary = Path(handle.name)
-            json.dump(inventory, handle, indent=2, ensure_ascii=True)
+            json.dump(content, handle, indent=2, ensure_ascii=True)
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
@@ -200,10 +290,10 @@ def collect_inventory(
     output: Path, update: bool, skip: set[str], research: dict[str, Any], pull_timeout: int
 ) -> dict[str, Any]:
     """Process every installed tag, checkpointing failures and successful pulls."""
-    previous = json.loads(output.read_text()) if output.exists() else {"models": []}
-    if not isinstance(previous, dict) or not isinstance(previous.get("models"), list):
-        raise ValueError("Existing inventory must be an object with a models array")
-    previous_models = {item["name"]: item for item in previous["models"]}
+    previous = InventoryV1.model_validate_json(output.read_text()) if output.exists() else None
+    previous_models = (
+        {item.name: item.model_dump(mode="json", exclude_unset=True) for item in previous.models} if previous else {}
+    )
     listed = command("ollama", "list")
     names = [line.split()[0] for line in listed.splitlines()[1:] if line.strip()]
     inventory: dict[str, Any] = {
@@ -270,7 +360,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--skip", action="append", default=[], help="Exact tag to exclude from pulls (repeatable)")
     parser.add_argument("--research", type=Path, help="Curated JSON metadata keyed by model family")
     parser.add_argument("--pull-timeout", type=int, default=7200, help="Per-model pull timeout in seconds")
+    parser.add_argument("--export-schema", type=Path, help="Write the JSON Schema and exit without contacting Ollama")
     args = parser.parse_args(argv)
+    if args.export_schema:
+        try:
+            write_json(args.export_schema, inventory_schema())
+        except (OSError, ValueError) as error:
+            parser.exit(1, f"Schema export failed: {error}\n")
+        return 0
     if args.pull_timeout <= 0:
         parser.error("--pull-timeout must be positive")
     traces, metrics, logs = configure_telemetry()

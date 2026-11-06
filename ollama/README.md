@@ -3,11 +3,13 @@
 - [pull.sh](pull.sh): pull explicitly named models.
 - [inventory.py](inventory.py): inspect installed tags; optionally update them first.
 - [model-inventory.json](model-inventory.json): generated local snapshot and pull outcomes.
+- [model-inventory.schema.json](model-inventory.schema.json): generated version 1 format contract.
 - [model-research.json](model-research.json): sourced family-level use cases, separate from local capabilities.
 
 ```bash
 ./ollama/inventory.py --update --skip qwen3.5:latest --research ollama/model-research.json
 ./ollama/inventory.py --research ollama/model-research.json
+./ollama/inventory.py --export-schema ollama/model-inventory.schema.json
 ```
 
 Requires `uv` and the native `ollama` CLI. Script dependencies are managed by `uv`.
@@ -34,6 +36,15 @@ snapshot. Refresh after any concurrent update completes. Successful pulls may le
 digest unchanged; their attempt timestamps are separate from `updated`.
 `pull` describes the current run; `last_pull` preserves the last attempted pull across
 inspection-only refreshes so updating research does not erase update provenance.
+
+Pydantic models live inside `inventory.py`, which remains a standalone `uv` script.
+Existing inventories are validated before any pulls, and every checkpoint is validated
+before replacement. Unknown versions, invalid fields, and malformed timestamps/digests
+are rejected without overwriting the previous file. Upstream metadata remains flexible.
+Version 1 includes partial checkpoints and records for models removed during inspection.
+Increment `schema_version` for incompatible format changes; add older readers only when
+needed. Generate the schema with `--export-schema` after changing the definitions; the
+export does not contact Ollama or the telemetry collector.
 
 Structured logs, traces, and model counts are sent best-effort to the local OTLP collector
 on port 4318. Collector failures do not prevent inventory generation.

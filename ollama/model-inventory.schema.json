@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "InspectionError": {
+      "additionalProperties": false,
+      "description": "Describe a failed inspection without discarding the model record.",
+      "properties": {
+        "source": {
+          "enum": [
+            "cli",
+            "api",
+            "snapshot"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "error": {
+          "minLength": 1,
+          "title": "Error",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "error"
+      ],
+      "title": "InspectionError",
+      "type": "object"
+    },
+    "InstalledModelRecord": {
+      "additionalProperties": false,
+      "description": "Locally observed manifest identity and flexible upstream metadata.",
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Details",
+          "type": "object"
+        },
+        "inspection_errors": {
+          "items": {
+            "$ref": "#/$defs/InspectionError"
+          },
+          "title": "Inspection Errors",
+          "type": "array"
+        },
+        "pull": {
+          "$ref": "#/$defs/PullResult"
+        },
+        "last_pull": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PullResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Digest",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "updated": {
+          "format": "date-time",
+          "title": "Updated",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "metadata": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Metadata",
+          "type": "object"
+        }
+      },
+      "required": [
+        "name",
+        "details",
+        "inspection_errors",
+        "pull",
+        "digest",
+        "size_bytes",
+        "updated",
+        "observed_at",
+        "metadata"
+      ],
+      "title": "InstalledModelRecord",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "MissingModelRecord": {
+      "additionalProperties": false,
+      "description": "A model removed before its manifest could be inspected.",
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "details": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Details",
+          "type": "object"
+        },
+        "inspection_errors": {
+          "items": {
+            "$ref": "#/$defs/InspectionError"
+          },
+          "minItems": 1,
+          "title": "Inspection Errors",
+          "type": "array"
+        },
+        "pull": {
+          "$ref": "#/$defs/PullResult"
+        },
+        "last_pull": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PullResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "name",
+        "details",
+        "inspection_errors",
+        "pull"
+      ],
+      "title": "MissingModelRecord",
+      "type": "object"
+    },
+    "PullResult": {
+      "additionalProperties": false,
+      "description": "Record a pull decision or attempt, independent of manifest modification.",
+      "properties": {
+        "status": {
+          "enum": [
+            "not_requested",
+            "skipped",
+            "succeeded",
+            "failed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "attempted_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attempted At"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Finished At"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "PullResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Version 1 of the inventory, including incomplete checkpoints.",
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "digest_algorithm": {
+      "const": "sha256",
+      "title": "Digest Algorithm",
+      "type": "string"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "generated_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Generated At"
+    },
+    "status": {
+      "enum": [
+        "in_progress",
+        "completed",
+        "completed_with_errors"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "ollama_version": {
+      "minLength": 1,
+      "title": "Ollama Version",
+      "type": "string"
+    },
+    "research_metadata": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Research Metadata",
+      "type": "object"
+    },
+    "expected_models": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Expected Models",
+      "type": "array"
+    },
+    "models": {
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/InstalledModelRecord"
+          },
+          {
+            "$ref": "#/$defs/MissingModelRecord"
+          }
+        ]
+      },
+      "title": "Models",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "digest_algorithm",
+    "started_at",
+    "generated_at",
+    "status",
+    "ollama_version",
+    "research_metadata",
+    "expected_models",
+    "models"
+  ],
+  "title": "InventoryV1",
+  "type": "object"
+}

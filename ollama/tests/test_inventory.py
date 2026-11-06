@@ -7,7 +7,117 @@ from pathlib import Path
 from typing import Any
 from unittest.mock import patch
 
+from pydantic import ValidationError
+
 from ollama import inventory
+
+
+def snapshot() -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "digest_algorithm": "sha256",
+        "started_at": "2026-11-06T00:00:00Z",
+        "generated_at": None,
+        "status": "in_progress",
+        "ollama_version": "test",
+        "research_metadata": {},
+        "expected_models": [],
+        "models": [],
+    }
+
+
+class InventoryV1TestCase(unittest.TestCase):
+    def test_it_validates_the_committed_inventory_and_generated_schema(self) -> None:
+        directory = Path(inventory.__file__).parent
+        data = (directory / "model-inventory.json").read_text()
+
+        model = inventory.InventoryV1.model_validate_json(data)
+
+        self.assertEqual(len(model.models), len(model.expected_models))
+        self.assertEqual(
+            json.loads((directory / "model-inventory.schema.json").read_text()), inventory.inventory_schema()
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "inventory.json"
+
+            inventory.write_inventory(path, json.loads(data))
+
+            self.assertEqual(json.loads(path.read_text()), json.loads(data))
+
+    def test_it_rejects_invalid_writes_without_changing_the_existing_file(self) -> None:
+        for field, value in (
+            ("schema_version", 2),
+            ("status", "done"),
+            ("started_at", "yesterday"),
+            ("started_at", 1793980800),
+        ):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory) / "inventory.json"
+                path.write_text("original")
+                data = snapshot()
+                data[field] = value
+
+                with self.assertRaises(ValidationError):
+                    inventory.write_inventory(path, data)
+
+                self.assertEqual(path.read_text(), "original")
+
+    def test_it_rejects_malformed_installed_model_fields(self) -> None:
+        record = {
+            "name": "model:latest",
+            "digest": "a" * 64,
+            "size_bytes": 1,
+            "updated": "2026-11-06T00:00:00Z",
+            "observed_at": "2026-11-06T00:00:00Z",
+            "details": {},
+            "metadata": {"upstream_extension": {"values": [True, None, 42]}},
+            "inspection_errors": [],
+            "pull": {"status": "not_requested"},
+        }
+        data = snapshot()
+        data["models"] = [record]
+        inventory.InventoryV1.model_validate(data)
+
+        for field, value in (
+            ("digest", "short"),
+            ("size_bytes", -1),
+            ("size_bytes", "42"),
+            ("updated", "2026-11-06T00:00:00"),
+            ("pull", {"status": "unknown"}),
+            ("unexpected_field", True),
+        ):
+            with self.subTest(field=field, value=value):
+                data["models"] = [{**record, field: value}]
+
+                with self.assertRaises(ValidationError):
+                    inventory.InventoryV1.model_validate(data)
+
+    def test_it_rejects_invalid_existing_inventory_before_running_commands(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "inventory.json"
+            data = snapshot()
+            data["schema_version"] = 2
+            path.write_text(json.dumps(data))
+            with patch.object(inventory, "command", spec=inventory.command) as command:
+                with self.assertRaises(ValidationError):
+                    inventory.collect_inventory(path, True, set(), {}, 30)
+
+            command.assert_not_called()
+            self.assertEqual(json.loads(path.read_text()), data)
+
+    def test_it_exports_schema_without_ollama_or_telemetry(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "schema.json"
+            with (
+                patch.object(inventory, "command", spec=inventory.command) as command,
+                patch.object(inventory, "configure_telemetry", spec=inventory.configure_telemetry) as telemetry,
+            ):
+                result = inventory.main(["--export-schema", str(path)])
+
+            self.assertEqual(result, 0)
+            self.assertEqual(json.loads(path.read_text()), inventory.inventory_schema())
+            command.assert_not_called()
+            telemetry.assert_not_called()
 
 
 class CommandTestCase(unittest.TestCase):
@@ -41,12 +151,41 @@ class ParseSectionsTestCase(unittest.TestCase):
 
 
 class CollectInventoryTestCase(unittest.TestCase):
-    def test_it_preserves_last_pull_during_inspection_only_refresh(self) -> None:
-        prior_pull = {"status": "succeeded", "attempted_at": "2026-11-06T00:00:00Z"}
-        tag = {"name": "model:latest", "digest": "digest", "size": 1, "modified_at": "date"}
+    def test_it_writes_a_failed_record_when_model_is_removed_before_inspection(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "inventory.json"
-            output.write_text(json.dumps({"models": [{"name": "model:latest", "pull": prior_pull}]}))
+            with (
+                patch.object(
+                    inventory,
+                    "command",
+                    spec=inventory.command,
+                    side_effect=["NAME ID SIZE MODIFIED\nmodel:latest a 1 B\n", "version"],
+                ),
+                patch.object(inventory, "api", spec=inventory.api, return_value={"models": []}),
+                self.assertLogs(inventory.logger, level="ERROR"),
+            ):
+                result = inventory.collect_inventory(output, False, set(), {}, 30)
+
+            model = inventory.InventoryV1.model_validate_json(output.read_text())
+
+        self.assertEqual(result["status"], "completed_with_errors")
+        self.assertIsInstance(model.models[0], inventory.MissingModelRecord)
+
+    def test_it_preserves_last_pull_during_inspection_only_refresh(self) -> None:
+        prior_pull = {"status": "succeeded", "attempted_at": "2026-11-06T00:00:00Z"}
+        tag = {"name": "model:latest", "digest": "a" * 64, "size": 1, "modified_at": "2026-11-06T00:00:00Z"}
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "inventory.json"
+            prior = snapshot()
+            prior["models"] = [
+                {
+                    "name": "model:latest",
+                    "details": {},
+                    "inspection_errors": [{"source": "snapshot", "error": "Model no longer installed"}],
+                    "pull": prior_pull,
+                }
+            ]
+            output.write_text(json.dumps(prior))
             with (
                 patch.object(
                     inventory,
