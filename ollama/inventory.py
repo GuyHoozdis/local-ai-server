@@ -200,6 +200,10 @@ def collect_inventory(
     output: Path, update: bool, skip: set[str], research: dict[str, Any], pull_timeout: int
 ) -> dict[str, Any]:
     """Process every installed tag, checkpointing failures and successful pulls."""
+    previous = json.loads(output.read_text()) if output.exists() else {"models": []}
+    if not isinstance(previous, dict) or not isinstance(previous.get("models"), list):
+        raise ValueError("Existing inventory must be an object with a models array")
+    previous_models = {item["name"]: item for item in previous["models"]}
     listed = command("ollama", "list")
     names = [line.split()[0] for line in listed.splitlines()[1:] if line.strip()]
     inventory: dict[str, Any] = {
@@ -209,6 +213,7 @@ def collect_inventory(
         "generated_at": None,
         "status": "in_progress",
         "ollama_version": command("ollama", "--version").strip(),
+        "research_metadata": research.get("_metadata", {}),
         "expected_models": names,
         "models": [],
     }
@@ -237,6 +242,13 @@ def collect_inventory(
         else:
             record = inspect_model(name, tags[name], research)
         record["pull"] = pull
+        prior = previous_models.get(name, {})
+        if pull["status"] in {"succeeded", "failed"}:
+            record["last_pull"] = pull
+        elif "last_pull" in prior:
+            record["last_pull"] = prior["last_pull"]
+        elif prior.get("pull", {}).get("status") in {"succeeded", "failed"}:
+            record["last_pull"] = prior["pull"]
         inventory["models"].append(record)
         write_inventory(output, inventory)
         logger.info("model_recorded", extra={"context": {"model": name, "pull_status": pull["status"]}})

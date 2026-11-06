@@ -31,6 +31,8 @@ and the expected tag list; failures are recorded and cause a nonzero exit after 
 models are processed. A digest changing during inspection is reported as an inconsistent
 snapshot. Refresh after any concurrent update completes. Successful pulls may leave the
 digest unchanged; their attempt timestamps are separate from `updated`.
+`pull` describes the current run; `last_pull` preserves the last attempted pull across
+inspection-only refreshes so updating research does not erase update provenance.
 
 Structured logs, traces, and model counts are sent best-effort to the local OTLP collector
 on port 4318. Collector failures do not prevent inventory generation.

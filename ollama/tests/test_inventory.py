@@ -41,6 +41,32 @@ class ParseSectionsTestCase(unittest.TestCase):
 
 
 class CollectInventoryTestCase(unittest.TestCase):
+    def test_it_preserves_last_pull_during_inspection_only_refresh(self) -> None:
+        prior_pull = {"status": "succeeded", "attempted_at": "2026-11-06T00:00:00Z"}
+        tag = {"name": "model:latest", "digest": "digest", "size": 1, "modified_at": "date"}
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "inventory.json"
+            output.write_text(json.dumps({"models": [{"name": "model:latest", "pull": prior_pull}]}))
+            with (
+                patch.object(
+                    inventory,
+                    "command",
+                    spec=inventory.command,
+                    side_effect=["NAME ID SIZE MODIFIED\nmodel:latest a 1 B\n", "version", "  Model\n    size    1B\n"],
+                ),
+                patch.object(
+                    inventory,
+                    "api",
+                    spec=inventory.api,
+                    side_effect=[{"models": [tag]}, {"capabilities": ["completion"]}, {"models": [tag]}],
+                ),
+            ):
+                result = inventory.collect_inventory(output, False, set(), {"_metadata": {"scope": "family"}}, 30)
+
+        self.assertEqual(result["models"][0]["pull"], {"status": "not_requested"})
+        self.assertEqual(result["models"][0]["last_pull"], prior_pull)
+        self.assertEqual(result["research_metadata"], {"scope": "family"})
+
     def test_it_skips_pulls_but_inspects_and_continues_after_failure(self) -> None:
         tag = {"digest": "a" * 64, "size": 42, "modified_at": "2026-11-06T00:00:00Z", "details": {}}
 
