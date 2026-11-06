@@ -1,0 +1,4886 @@
+{
+  "schema_version": 1,
+  "digest_algorithm": "sha256",
+  "started_at": "2026-11-06T18:11:43.083885+00:00",
+  "generated_at": "2026-11-06T18:12:30.586997+00:00",
+  "status": "completed_with_errors",
+  "ollama_version": "ollama version is 0.40.15",
+  "research_metadata": {
+    "researched_at": "2026-11-06T17:38:05Z",
+    "scope": "Publisher descriptions on public Ollama library pages; family-level guidance, not local runtime measurements.",
+    "benchmark_caveat": "Scores are omitted: published results cannot be attributed to local models without matching the exact checkpoint, quantization, inference settings, evaluation harness, and source.",
+    "installation_caveat": "Capabilities, context limits, runtime requirements, and availability vary by tag and Ollama version. Local API capabilities take precedence over family descriptions."
+  },
+  "expected_models": [
+    "snowflake-arctic-embed:latest",
+    "smallthinker:latest",
+    "r1-1776:latest",
+    "qwq:latest",
+    "qwen3:latest",
+    "qwen3-coder:latest",
+    "qwen3-coder-next:latest",
+    "phi4:latest",
+    "phi4-reasoning:latest",
+    "phi4-mini:latest",
+    "phi4-mini-reasoning:latest",
+    "ornith:latest",
+    "nomic-embed-text:latest",
+    "mxbai-embed-large:latest",
+    "mistral:latest",
+    "ministral-3:latest",
+    "llava:latest",
+    "llama4:latest",
+    "llama3.3:latest",
+    "llama3.2:latest",
+    "llama3.2-vision:latest",
+    "llama-guard3:latest",
+    "lfm2:latest",
+    "laguna-xs-2.1:latest",
+    "laguna-s-2.1:latest",
+    "granite3.2:latest",
+    "granite3.1-moe:latest",
+    "granite3.1-dense:latest",
+    "gpt-oss:latest",
+    "gpt-oss:20b",
+    "glm-5.2:cloud",
+    "gemma:latest",
+    "gemma3n:latest",
+    "gemma3:latest",
+    "gemma2:latest",
+    "exaone-deep:latest",
+    "devstral:latest",
+    "deepseek-v2.5:latest",
+    "deepseek-r1:latest",
+    "deepseek-coder-v2:latest",
+    "codestral:latest",
+    "codellama:latest",
+    "codegemma:latest",
+    "qwen3.5:latest",
+    "glm-4.7:cloud"
+  ],
+  "models": [
+    {
+      "name": "codegemma:latest",
+      "digest": "0c96700aaada572ce9bb6999d1fda9b53e9e6cef5d74fda1e066a1ba811b93f3",
+      "size_bytes": 5011852809,
+      "updated": "2026-11-06T11:37:11.671590506-06:00",
+      "observed_at": "2026-11-06T18:11:43.401354+00:00",
+      "details": {
+        "Model": [
+          "architecture        gemma",
+          "parameters          9B",
+          "context length      8192",
+          "embedding length    3072",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "penalize_newline    false",
+          "repeat_penalty      1",
+          "stop                \"<start_of_turn>\"",
+          "stop                \"<end_of_turn>\""
+        ],
+        "License": [
+          "Gemma Terms of Use",
+          "Last modified: February 21, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma",
+          "families": [
+            "gemma"
+          ],
+          "parameter_size": "9B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "code completion",
+            "fill-in-the-middle",
+            "code generation",
+            "natural-language-to-code"
+          ],
+          "summary": "Google's lightweight coding family has distinct pretrained completion and instruction-tuned chat variants.",
+          "sources": [
+            "https://ollama.com/library/codegemma"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "gemma.attention.head_count": 16,
+          "gemma.attention.head_count_kv": 16,
+          "gemma.attention.key_length": 256,
+          "gemma.attention.layer_norm_rms_epsilon": 1e-06,
+          "gemma.attention.value_length": 256,
+          "gemma.block_count": 28,
+          "gemma.context_length": 8192,
+          "gemma.embedding_length": 3072,
+          "gemma.feed_forward_length": 24576,
+          "general.architecture": "gemma",
+          "general.file_type": 2,
+          "general.parameter_count": 8537680896,
+          "general.quantization_version": 2
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:11.062507+00:00",
+        "finished_at": "2026-11-06T17:37:11.697021+00:00"
+      }
+    },
+    {
+      "name": "codellama:latest",
+      "digest": "8fdf8f752f6e80de33e82f381aba784c025982752cd1ae9377add66449d2225f",
+      "size_bytes": 3825910662,
+      "updated": "2026-11-06T11:37:13.870173637-06:00",
+      "observed_at": "2026-11-06T18:11:44.312135+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          7B",
+          "context length      16384",
+          "embedding length    4096",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "rope_frequency_base    1e+06",
+          "stop                   \"[INST]\"",
+          "stop                   \"[/INST]\"",
+          "stop                   \"<<SYS>>\"",
+          "stop                   \"<</SYS>>\""
+        ],
+        "License": [
+          "LLAMA 2 COMMUNITY LICENSE AGREEMENT",
+          "Llama 2 Version Release Date: July 18, 2023",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": null,
+          "parameter_size": "7B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "code generation",
+            "code explanation",
+            "code completion",
+            "Python assistance"
+          ],
+          "summary": "Meta's Llama-2-derived coding family includes instruct, Python-specialized, and base completion variants.",
+          "sources": [
+            "https://ollama.com/library/codellama"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.file_type": 2,
+          "general.parameter_count": 6738546688,
+          "general.quantization_version": 2,
+          "llama.attention.head_count": 32,
+          "llama.attention.head_count_kv": 32,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.block_count": 32,
+          "llama.context_length": 16384,
+          "llama.embedding_length": 4096,
+          "llama.feed_forward_length": 11008,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 1000000
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:13.444463+00:00",
+        "finished_at": "2026-11-06T17:37:13.893372+00:00"
+      }
+    },
+    {
+      "name": "codestral:latest",
+      "digest": "0898a8b286d56d8105587049fec69634fce83c957230fc13f0acfe03b7b11909",
+      "size_bytes": 12569170438,
+      "updated": "2026-11-06T11:37:15.485789042-06:00",
+      "observed_at": "2026-11-06T18:11:45.379524+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          22.2B",
+          "context length      32768",
+          "embedding length    6144",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "insert"
+        ],
+        "Parameters": [
+          "stop    \"[INST]\"",
+          "stop    \"[/INST]\"",
+          "stop    \"[PREFIX]\"",
+          "stop    \"[MIDDLE]\"",
+          "stop    \"[SUFFIX]\""
+        ],
+        "License": [
+          "# Mistral AI Non-Production License",
+          "## 1. Scope and acceptance",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "22.2B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion",
+          "insert"
+        ],
+        "research": {
+          "intended_uses": [
+            "code generation",
+            "function completion",
+            "test writing",
+            "fill-in-the-middle"
+          ],
+          "summary": "This entry describes Mistral's 22B coding model trained across more than 80 languages, not later API-only namesakes.",
+          "sources": [
+            "https://ollama.com/library/codestral"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.file_type": 2,
+          "general.parameter_count": 22247282688,
+          "general.quantization_version": 2,
+          "llama.attention.head_count": 48,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.block_count": 56,
+          "llama.context_length": 32768,
+          "llama.embedding_length": 6144,
+          "llama.feed_forward_length": 16384,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 1000000,
+          "llama.vocab_size": 32768
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:15.109843+00:00",
+        "finished_at": "2026-11-06T17:37:15.508631+00:00"
+      }
+    },
+    {
+      "name": "deepseek-coder-v2:latest",
+      "digest": "63fb193b3a9b4322a18e8c6b250ca2e70a5ff531e962dbf95ba089b2566f2fa5",
+      "size_bytes": 8905126121,
+      "updated": "2026-11-06T11:37:17.106803291-06:00",
+      "observed_at": "2026-11-06T18:11:46.407148+00:00",
+      "details": {
+        "Model": [
+          "architecture        deepseek2",
+          "parameters          15.7B",
+          "context length      163840",
+          "embedding length    2048",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "insert"
+        ],
+        "Parameters": [
+          "stop    \"User:\"",
+          "stop    \"Assistant:\""
+        ],
+        "License": [
+          "DEEPSEEK LICENSE AGREEMENT",
+          "Version 1.0, 23 October 2023",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "deepseek2",
+          "families": [
+            "deepseek2"
+          ],
+          "parameter_size": "15.7B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion",
+          "insert"
+        ],
+        "research": {
+          "intended_uses": [
+            "code generation",
+            "coding assistance"
+          ],
+          "summary": "DeepSeek's MoE coding family; Lite and full-size results must not be conflated.",
+          "sources": [
+            "https://ollama.com/library/deepseek-coder-v2"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "deepseek2.attention.head_count": 16,
+          "deepseek2.attention.head_count_kv": 16,
+          "deepseek2.attention.key_length": 192,
+          "deepseek2.attention.kv_lora_rank": 512,
+          "deepseek2.attention.layer_norm_rms_epsilon": 1e-06,
+          "deepseek2.attention.value_length": 128,
+          "deepseek2.block_count": 27,
+          "deepseek2.context_length": 163840,
+          "deepseek2.embedding_length": 2048,
+          "deepseek2.expert_count": 64,
+          "deepseek2.expert_feed_forward_length": 1408,
+          "deepseek2.expert_shared_count": 2,
+          "deepseek2.expert_used_count": 6,
+          "deepseek2.expert_weights_scale": 1,
+          "deepseek2.feed_forward_length": 10944,
+          "deepseek2.leading_dense_block_count": 1,
+          "deepseek2.rope.dimension_count": 64,
+          "deepseek2.rope.freq_base": 10000,
+          "deepseek2.rope.scaling.factor": 40,
+          "deepseek2.rope.scaling.original_context_length": 4096,
+          "deepseek2.rope.scaling.type": "yarn",
+          "deepseek2.rope.scaling.yarn_log_multiplier": 0.0707,
+          "deepseek2.vocab_size": 102400,
+          "general.architecture": "deepseek2",
+          "general.file_type": 2,
+          "general.parameter_count": 15706484224,
+          "general.quantization_version": 2
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:16.669777+00:00",
+        "finished_at": "2026-11-06T17:37:17.130333+00:00"
+      }
+    },
+    {
+      "name": "deepseek-r1:latest",
+      "digest": "6995872bfe4c521a67b32da386cd21d5c6e819b6e0d62f79f64ec83be99f5763",
+      "size_bytes": 5225376047,
+      "updated": "2026-11-06T11:37:18.617984066-06:00",
+      "observed_at": "2026-11-06T18:11:47.390682+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen3",
+          "parameters          8.2B",
+          "context length      131072",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     gguf_chat_template"
+        ],
+        "Capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ],
+        "Parameters": [
+          "top_p          0.95",
+          "stop           \"<\uff5cbegin\u2581of\u2581sentence\uff5c>\"",
+          "stop           \"<\uff5cend\u2581of\u2581sentence\uff5c>\"",
+          "stop           \"<\uff5cUser\uff5c>\"",
+          "stop           \"<\uff5cAssistant\uff5c>\"",
+          "temperature    0.6"
+        ],
+        "License": [
+          "MIT License",
+          "Copyright (c) 2023 DeepSeek",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "8.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "tools",
+          "thinking",
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "mathematical reasoning",
+            "programming",
+            "logical problem solving"
+          ],
+          "summary": "Includes a full MoE and distinct dense distillations. The full-model and Qwen3-derived 8B 0528 updates are not equivalent to other distilled tags.",
+          "sources": [
+            "https://ollama.com/library/deepseek-r1"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen3",
+          "general.basename": "DeepSeek-R1-0528-Qwen3",
+          "general.file_type": 15,
+          "general.license": "mit",
+          "general.parameter_count": 8190735360,
+          "general.quantization_version": 2,
+          "general.size_label": "8B",
+          "general.type": "model",
+          "qwen3.attention.head_count": 32,
+          "qwen3.attention.head_count_kv": 8,
+          "qwen3.attention.key_length": 128,
+          "qwen3.attention.layer_norm_rms_epsilon": 1e-06,
+          "qwen3.attention.value_length": 128,
+          "qwen3.block_count": 36,
+          "qwen3.context_length": 131072,
+          "qwen3.embedding_length": 4096,
+          "qwen3.feed_forward_length": 12288,
+          "qwen3.rope.freq_base": 1000000,
+          "qwen3.rope.scaling.factor": 4,
+          "qwen3.rope.scaling.original_context_length": 32768,
+          "qwen3.rope.scaling.type": "yarn"
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:18.217648+00:00",
+        "finished_at": "2026-11-06T17:37:18.643934+00:00"
+      }
+    },
+    {
+      "name": "deepseek-v2.5:latest",
+      "digest": "409b2dd8a3c46a9e92dcfe317e016539c047c48aac3bc54cd4f11df310885ded",
+      "size_bytes": 132912472044,
+      "updated": "2026-11-06T11:37:20.351091377-06:00",
+      "observed_at": "2026-11-06T18:11:48.401313+00:00",
+      "details": {
+        "Model": [
+          "architecture        deepseek2",
+          "parameters          235.7B",
+          "context length      163840",
+          "embedding length    5120",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "insert"
+        ],
+        "Parameters": [
+          "stop    \"<\uff5cbegin\u2581of\u2581sentence\uff5c>\"",
+          "stop    \"<\uff5cend\u2581of\u2581sentence\uff5c>\"",
+          "stop    \"<\uff5cUser\uff5c>\"",
+          "stop    \"<\uff5cAssistant\uff5c>\"",
+          "stop    \"<\uff5cfim\u2581begin\uff5c>\"",
+          "stop    \"<\uff5cfim\u2581hole\uff5c>\"",
+          "stop    \"<\uff5cfim\u2581end\uff5c>\""
+        ],
+        "License": [
+          "DEEPSEEK LICENSE AGREEMENT",
+          "Version 1.0, 23 October 2023",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "deepseek2",
+          "families": [
+            "deepseek2"
+          ],
+          "parameter_size": "235.7B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion",
+          "insert"
+        ],
+        "research": {
+          "intended_uses": [
+            "general assistance",
+            "writing",
+            "instruction following",
+            "coding"
+          ],
+          "summary": "Combines DeepSeek-V2-Chat conversational capabilities with DeepSeek-Coder-V2-Instruct coding capabilities.",
+          "sources": [
+            "https://ollama.com/library/deepseek-v2.5"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "deepseek2.attention.head_count": 128,
+          "deepseek2.attention.head_count_kv": 128,
+          "deepseek2.attention.key_length": 192,
+          "deepseek2.attention.kv_lora_rank": 512,
+          "deepseek2.attention.layer_norm_rms_epsilon": 1e-06,
+          "deepseek2.attention.q_lora_rank": 1536,
+          "deepseek2.attention.value_length": 128,
+          "deepseek2.block_count": 60,
+          "deepseek2.context_length": 163840,
+          "deepseek2.embedding_length": 5120,
+          "deepseek2.expert_count": 160,
+          "deepseek2.expert_feed_forward_length": 1536,
+          "deepseek2.expert_shared_count": 2,
+          "deepseek2.expert_used_count": 6,
+          "deepseek2.expert_weights_scale": 16,
+          "deepseek2.feed_forward_length": 12288,
+          "deepseek2.leading_dense_block_count": 1,
+          "deepseek2.rope.dimension_count": 64,
+          "deepseek2.rope.freq_base": 10000,
+          "deepseek2.rope.scaling.factor": 40,
+          "deepseek2.rope.scaling.original_context_length": 4096,
+          "deepseek2.rope.scaling.type": "yarn",
+          "deepseek2.rope.scaling.yarn_log_multiplier": 0.1,
+          "deepseek2.vocab_size": 102400,
+          "general.architecture": "deepseek2",
+          "general.basename": "DeepSeek",
+          "general.file_type": 2,
+          "general.license": "other",
+          "general.license.link": "https://github.com/deepseek-ai/DeepSeek-V2/blob/main/LICENSE-MODEL",
+          "general.license.name": "deepseek",
+          "general.parameter_count": 235741434880,
+          "general.quantization_version": 2,
+          "general.size_label": "160x14B",
+          "general.type": "model",
+          "general.version": "V2.5"
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:19.869853+00:00",
+        "finished_at": "2026-11-06T17:37:20.378486+00:00"
+      }
+    },
+    {
+      "name": "devstral:latest",
+      "digest": "9bd74193e93935e9d8564d88607b220a9d341c4a36b748cffcbd9ad4f47a9ca9",
+      "size_bytes": 14333928046,
+      "updated": "2026-11-06T11:37:21.98507119-06:00",
+      "observed_at": "2026-11-06T18:11:49.431799+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          23.6B",
+          "context length      131072",
+          "embedding length    5120",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "System": [
+          "You are Devstral, a helpful agentic model trained by Mistral AI and using the OpenHands scaffold.",
+          "  You can interact with a computer to solve tasks.",
+          "<ROLE>",
+          "..."
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "devstral:latest",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "23.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "software engineering agents",
+            "tool-based codebase exploration",
+            "multi-file editing"
+          ],
+          "summary": "Mistral and All Hands AI's text-only 24B agentic coding model derives from Mistral Small 3.1 with its vision encoder removed.",
+          "sources": [
+            "https://ollama.com/library/devstral"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.base_model.0.name": "Devstrall Small 2505",
+          "general.base_model.0.organization": "Mistralai",
+          "general.base_model.0.repo_url": "https://huggingface.co/mistralai/Devstrall-Small-2505",
+          "general.base_model.0.version": "2505",
+          "general.base_model.count": 1,
+          "general.basename": "Devstral",
+          "general.file_type": 15,
+          "general.languages": [
+            "en",
+            "fr",
+            "de",
+            "es",
+            "pt",
+            "it",
+            "ja",
+            "ko",
+            "ru",
+            "zh",
+            "ar",
+            "fa",
+            "id",
+            "ms",
+            "ne",
+            "pl",
+            "ro",
+            "sr",
+            "sv",
+            "tr",
+            "uk",
+            "vi",
+            "hi",
+            "bn"
+          ],
+          "general.license": "apache-2.0",
+          "general.parameter_count": 23572403200,
+          "general.quantization_version": 2,
+          "general.size_label": "Small",
+          "general.tags": [
+            "text2text-generation"
+          ],
+          "general.type": "model",
+          "general.version": "2505",
+          "llama.attention.head_count": 32,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.key_length": 128,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.attention.value_length": 128,
+          "llama.block_count": 40,
+          "llama.context_length": 131072,
+          "llama.embedding_length": 5120,
+          "llama.feed_forward_length": 32768,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 1000000000,
+          "llama.vocab_size": 131072
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:21.566843+00:00",
+        "finished_at": "2026-11-06T17:37:22.007723+00:00"
+      }
+    },
+    {
+      "name": "exaone-deep:latest",
+      "digest": "106afe416a9effa9570d04231c25192fc254ac1b51f0f1cafed20a32060958c9",
+      "size_bytes": 4770665152,
+      "updated": "2026-11-06T11:37:23.616898457-06:00",
+      "observed_at": "2026-11-06T18:11:50.524888+00:00",
+      "details": {
+        "Model": [
+          "architecture        exaone",
+          "parameters          7.8B",
+          "context length      32768",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "stop              \"[|endofturn|]\"",
+          "temperature       0.6",
+          "top_p             0.95",
+          "repeat_penalty    1"
+        ],
+        "License": [
+          "EXAONE AI Model License Agreement 1.1 - NC",
+          "This License Agreement (\u201cAgreement\u201d) is entered into between you (\u201cLicensee\u201d) and LG Management",
+          "  Development",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "exaone",
+          "families": [
+            "exaone"
+          ],
+          "parameter_size": "7.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "mathematical reasoning",
+            "coding",
+            "complex reasoning"
+          ],
+          "summary": "LG AI Research's reasoning family spans 2.4B/7.8B/32B models; results remain specific to the evaluated variant.",
+          "sources": [
+            "https://ollama.com/library/exaone-deep"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "exaone.attention.head_count": 32,
+          "exaone.attention.head_count_kv": 8,
+          "exaone.attention.layer_norm_rms_epsilon": 1e-05,
+          "exaone.block_count": 32,
+          "exaone.context_length": 32768,
+          "exaone.embedding_length": 4096,
+          "exaone.feed_forward_length": 14336,
+          "exaone.rope.dimension_count": 128,
+          "exaone.rope.freq_base": 1000000,
+          "general.architecture": "exaone",
+          "general.base_model.0.name": "EXAONE 3.5 7.8B Instruct",
+          "general.base_model.0.organization": "LGAI EXAONE",
+          "general.base_model.0.repo_url": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
+          "general.base_model.count": 1,
+          "general.basename": "EXAONE-Deep",
+          "general.file_type": 15,
+          "general.languages": [
+            "en",
+            "ko"
+          ],
+          "general.license": "other",
+          "general.license.link": "LICENSE",
+          "general.license.name": "exaone",
+          "general.parameter_count": 7818448960,
+          "general.quantization_version": 2,
+          "general.size_label": "7.8B",
+          "general.tags": [
+            "lg-ai",
+            "exaone",
+            "exaone-deep",
+            "text-generation"
+          ],
+          "general.type": "model"
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:23.197822+00:00",
+        "finished_at": "2026-11-06T17:37:23.638393+00:00"
+      }
+    },
+    {
+      "name": "gemma2:latest",
+      "digest": "ff02c3702f322b9e075e9568332d96c0a7028002f1a5a056e0a6784320a4db0b",
+      "size_bytes": 5443152417,
+      "updated": "2026-11-06T11:37:25.229622984-06:00",
+      "observed_at": "2026-11-06T18:11:51.559542+00:00",
+      "details": {
+        "Model": [
+          "architecture        gemma2",
+          "parameters          9.2B",
+          "context length      8192",
+          "embedding length    3584",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "stop    \"<start_of_turn>\"",
+          "stop    \"<end_of_turn>\""
+        ],
+        "License": [
+          "Gemma Terms of Use",
+          "Last modified: February 21, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma2",
+          "families": [
+            "gemma2"
+          ],
+          "parameter_size": "9.2B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "text generation",
+            "conversation",
+            "summarization",
+            "language learning",
+            "question answering"
+          ],
+          "summary": "Google's second-generation Gemma models target text-focused assistant, content, research, and educational applications.",
+          "sources": [
+            "https://ollama.com/library/gemma2"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "gemma2.attention.head_count": 16,
+          "gemma2.attention.head_count_kv": 8,
+          "gemma2.attention.key_length": 256,
+          "gemma2.attention.layer_norm_rms_epsilon": 1e-06,
+          "gemma2.attention.sliding_window": 4096,
+          "gemma2.attention.value_length": 256,
+          "gemma2.attn_logit_softcapping": 50,
+          "gemma2.block_count": 42,
+          "gemma2.context_length": 8192,
+          "gemma2.embedding_length": 3584,
+          "gemma2.feed_forward_length": 14336,
+          "gemma2.final_logit_softcapping": 30,
+          "general.architecture": "gemma2",
+          "general.file_type": 2,
+          "general.parameter_count": 9241705984,
+          "general.quantization_version": 2
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:24.774375+00:00",
+        "finished_at": "2026-11-06T17:37:25.248928+00:00"
+      }
+    },
+    {
+      "name": "gemma3:latest",
+      "digest": "68ceab7e468a31c988b44d5a4984a0e21f58c4f7158c6ce29c1804babac38df7",
+      "size_bytes": 3350272403,
+      "updated": "2026-11-06T11:38:25.595876646-06:00",
+      "observed_at": "2026-11-06T18:11:52.633176+00:00",
+      "details": {
+        "Model": [
+          "architecture        gemma3",
+          "parameters          3.9B",
+          "context length      131072",
+          "embedding length    2560",
+          "quantization        Q4_K_M",
+          "requires            0.30.0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "vision"
+        ],
+        "Projector": [
+          "architecture        clip",
+          "parameters          419.82M",
+          "embedding length    1152",
+          "dimensions          2560"
+        ],
+        "Parameters": [
+          "stop           \"<end_of_turn>\"",
+          "temperature    1",
+          "top_k          64",
+          "top_p          0.95"
+        ],
+        "License": [
+          "Gemma Terms of Use",
+          "Last modified: February 21, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "dhiltgen/gemma3:4b-it-q4_K_M-llamacpp",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3",
+            "clip"
+          ],
+          "parameter_size": "3.9B",
+          "quantization_level": "Q4_K_M",
+          "runner": "llamacpp"
+        },
+        "supports": [
+          "completion",
+          "vision"
+        ],
+        "research": {
+          "intended_uses": [
+            "question answering",
+            "summarization",
+            "reasoning",
+            "multilingual assistance",
+            "image understanding in vision variants"
+          ],
+          "summary": "Google's family has text-only 270M/1B and image-capable 4B/12B/27B variants; vision/context claims are variant-specific.",
+          "sources": [
+            "https://ollama.com/library/gemma3"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "gemma3.attention.head_count": 8,
+          "gemma3.attention.head_count_kv": 4,
+          "gemma3.attention.key_length": 256,
+          "gemma3.attention.layer_norm_rms_epsilon": 1e-06,
+          "gemma3.attention.sliding_window": 1024,
+          "gemma3.attention.value_length": 256,
+          "gemma3.block_count": 34,
+          "gemma3.context_length": 131072,
+          "gemma3.embedding_length": 2560,
+          "gemma3.feed_forward_length": 10240,
+          "gemma3.rope.freq_base": 1000000,
+          "gemma3.rope.scaling.factor": 8,
+          "gemma3.rope.scaling.type": "linear",
+          "general.architecture": "gemma3",
+          "general.file_type": 15,
+          "general.parameter_count": 3880101888,
+          "general.quantization_version": 2
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:37:26.420216+00:00",
+        "finished_at": "2026-11-06T17:38:25.646330+00:00"
+      }
+    },
+    {
+      "name": "gemma3n:latest",
+      "digest": "0a377808afeaafcbf5dcc2b1844594a1b60a50cd18e7e3e469cfd64e7bb7faa5",
+      "size_bytes": 9768581852,
+      "updated": "2026-11-06T11:41:11.278312239-06:00",
+      "observed_at": "2026-11-06T18:11:53.715801+00:00",
+      "details": {
+        "Model": [
+          "architecture        gemma3n",
+          "parameters          6.9B",
+          "context length      32768",
+          "embedding length    2048",
+          "quantization        Q4_K_M",
+          "requires            0.40.0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "vision"
+        ],
+        "Projector": [
+          "architecture        clip",
+          "parameters          983.28M",
+          "embedding length    2048",
+          "dimensions          2048"
+        ],
+        "License": [
+          "Gemma Terms of Use",
+          "Last modified: March 24, 2025",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "candidate/gemma3n:e4b-it-q4_K_M",
+          "format": "gguf",
+          "family": "gemma3n",
+          "families": [
+            "gemma3n"
+          ],
+          "parameter_size": "6.9B",
+          "quantization_level": "Q4_K_M",
+          "runner": "llamacpp"
+        },
+        "supports": [
+          "completion",
+          "vision"
+        ],
+        "research": {
+          "intended_uses": [
+            "on-device generative AI",
+            "resource-efficient content generation"
+          ],
+          "summary": "Device-oriented instruction models use selective parameter activation and effective E2B/E4B sizes, not those total parameter counts. Local image/audio availability was not verified; upstream model-card retrieval failed.",
+          "sources": [
+            "https://ollama.com/library/gemma3n"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "gemma3n.altup.active_idx": 0,
+          "gemma3n.altup.correct_scale": true,
+          "gemma3n.altup.lr_multiplier": 0,
+          "gemma3n.altup.num_inputs": 4,
+          "gemma3n.attention.head_count": 8,
+          "gemma3n.attention.head_count_kv": 2,
+          "gemma3n.attention.layer_norm_rms_epsilon": 1e-06,
+          "gemma3n.attention.shared_kv_layers": 15,
+          "gemma3n.attention.sliding_window": 512,
+          "gemma3n.attention.sliding_window_pattern": [
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false
+          ],
+          "gemma3n.block_count": 35,
+          "gemma3n.context_length": 32768,
+          "gemma3n.embedding_length": 2048,
+          "gemma3n.embedding_length_per_layer_input": 256,
+          "gemma3n.feed_forward_length": 16384,
+          "gemma3n.head_dim": 256,
+          "gemma3n.rope.freq_base": 1000000,
+          "gemma3n.rope.freq_base_local": 10000,
+          "general.architecture": "gemma3n",
+          "general.file_type": 15,
+          "general.parameter_count": 6868990448,
+          "general.quantization_version": 2
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:38:26.954487+00:00",
+        "finished_at": "2026-11-06T17:41:11.357827+00:00"
+      }
+    },
+    {
+      "name": "gemma:latest",
+      "digest": "a72c7f4d0a15522df81486d13ce432c79e191bda2558d024fbad4362c4f7cbf8",
+      "size_bytes": 5011853225,
+      "updated": "2026-11-06T11:41:13.191202141-06:00",
+      "observed_at": "2026-11-06T18:11:54.729116+00:00",
+      "details": {
+        "Model": [
+          "architecture        gemma",
+          "parameters          9B",
+          "context length      8192",
+          "embedding length    3072",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "penalize_newline    false",
+          "repeat_penalty      1",
+          "stop                \"<start_of_turn>\"",
+          "stop                \"<end_of_turn>\""
+        ],
+        "License": [
+          "Gemma Terms of Use",
+          "Last modified: February 21, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "gemma",
+          "families": [
+            "gemma"
+          ],
+          "parameter_size": "9B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "text generation",
+            "general language modeling"
+          ],
+          "summary": "Google's original lightweight Gemma family, separate from Gemma 2 and later generations.",
+          "sources": [
+            "https://ollama.com/library/gemma"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "gemma.attention.head_count": 16,
+          "gemma.attention.head_count_kv": 16,
+          "gemma.attention.key_length": 256,
+          "gemma.attention.layer_norm_rms_epsilon": 1e-06,
+          "gemma.attention.value_length": 256,
+          "gemma.block_count": 28,
+          "gemma.context_length": 8192,
+          "gemma.embedding_length": 3072,
+          "gemma.feed_forward_length": 24576,
+          "general.architecture": "gemma",
+          "general.file_type": 2,
+          "general.parameter_count": 8537680896,
+          "general.quantization_version": 2
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:41:12.801695+00:00",
+        "finished_at": "2026-11-06T17:41:13.207808+00:00"
+      }
+    },
+    {
+      "name": "glm-4.7:cloud",
+      "digest": "0236088648195aa13eaa52faa8152e8ac4fd7e4e137939d57a2a5576a8fd3df8",
+      "size_bytes": 327,
+      "updated": "2026-03-06T07:44:38.8747575-06:00",
+      "observed_at": "2026-11-06T18:11:55.804716+00:00",
+      "details": {},
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "",
+          "family": "",
+          "families": null,
+          "parameter_size": "",
+          "quantization_level": "",
+          "context_length": 202752
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "agentic coding",
+            "terminal tasks",
+            "UI generation",
+            "tool use",
+            "reasoning"
+          ],
+          "summary": "Z.ai's coding-oriented family supports thinking before acting and coding-agent integrations. The installed cloud service reports retirement; its historical use cases do not establish current availability.",
+          "availability": {
+            "status": "retired_for_installed_cloud_tag",
+            "retired_on": "2026-07-15",
+            "suggested_replacement": "glm-5.3-flash:cloud",
+            "source": "Local ollama show glm-4.7:cloud response observed 2026-11-06; replacement not installed or evaluated."
+          },
+          "sources": [
+            "https://ollama.com/library/glm-4.7"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        }
+      },
+      "inspection_errors": [
+        {
+          "source": "cli",
+          "error": "Error: glm-4.7 was retired on July 15, 2026. Try glm-5.3-flash:cloud. (ref: 3400c959-bfc2-4e25-a9e8-38a795d2b051)"
+        },
+        {
+          "source": "api",
+          "error": "http: warning: HTTP 410 Gone\n\n\n{\"error\":\"glm-4.7 was retired on July 15, 2026. Try glm-5.3-flash:cloud. (ref: 5fb6b7fb-07a0-4cbd-8017-8417abd10e36)\"}"
+        }
+      ],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "failed",
+        "attempted_at": "2026-11-06T17:41:14.350705+00:00",
+        "error": "pulling manifest \u280b pulling manifest \u2819 pulling manifest \u2839 pulling manifest \nError: pull model manifest: file does not exist",
+        "finished_at": "2026-11-06T17:41:14.719531+00:00"
+      }
+    },
+    {
+      "name": "glm-5.2:cloud",
+      "digest": "09d3ded00dd7a4e6ab5a8869ce39a947e721cb111399ec1f5dc474d16ef541c1",
+      "size_bytes": 290,
+      "updated": "2026-11-06T11:41:16.693492406-06:00",
+      "observed_at": "2026-11-06T18:11:57.041539+00:00",
+      "details": {
+        "Model": [
+          "architecture        glm5.2",
+          "parameters          756162687872",
+          "context length      1048576",
+          "embedding length    0",
+          "quantization"
+        ],
+        "Capabilities": [
+          "thinking",
+          "    levels     false, high, max",
+          "    default    high",
+          "completion",
+          "tools"
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "glm-5.2",
+          "format": "",
+          "family": "glm5.2",
+          "families": null,
+          "parameter_size": "756162687872",
+          "quantization_level": ""
+        },
+        "supports": [
+          "thinking",
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "long-horizon coding",
+            "project engineering",
+            "complex debugging",
+            "automated research"
+          ],
+          "summary": "Z.ai's model targets long-running engineering workflows with advertised long context and adjustable thinking effort.",
+          "sources": [
+            "https://ollama.com/library/glm-5.2"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "glm5.2",
+          "general.parameter_count": 756162687872,
+          "glm5.2.context_length": 1048576,
+          "glm5.2.embedding_length": 0
+        },
+        "thinking": {
+          "values": [
+            false,
+            "high",
+            "max"
+          ],
+          "default": "high"
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:41:16.152687+00:00",
+        "finished_at": "2026-11-06T17:41:16.737339+00:00"
+      }
+    },
+    {
+      "name": "gpt-oss:20b",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "size_bytes": 13793441566,
+      "updated": "2026-11-06T11:45:06.480945255-06:00",
+      "observed_at": "2026-11-06T18:11:58.063993+00:00",
+      "details": {
+        "Model": [
+          "architecture        gpt-oss",
+          "parameters          20.9B",
+          "context length      131072",
+          "embedding length    2880",
+          "quantization        MXFP4",
+          "requires            0.30.0",
+          "template source     harmony"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools",
+          "thinking",
+          "    levels     low, medium, high",
+          "    default    medium"
+        ],
+        "Parameters": [
+          "temperature    1"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "dhiltgen/gpt-oss:20b-llamacpp",
+          "format": "gguf",
+          "family": "gpt-oss",
+          "families": [
+            "gpt-oss"
+          ],
+          "parameter_size": "20.9B",
+          "quantization_level": "MXFP4",
+          "runner": "llamacpp"
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "reasoning",
+            "agent workflows",
+            "function calling",
+            "structured outputs"
+          ],
+          "summary": "OpenAI's open-weight reasoning family offers configurable reasoning effort and tool-driven applications. Distinguish 20B and 120B variants.",
+          "sources": [
+            "https://ollama.com/library/gpt-oss",
+            "https://ollama.com/library/gpt-oss:20b",
+            "https://ollama.com/library/gpt-oss:latest"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "gpt-oss",
+          "general.file_type": 4,
+          "general.parameter_count": 20914757184,
+          "general.quantization_version": 2,
+          "gpt-oss.attention.head_count": 64,
+          "gpt-oss.attention.head_count_kv": 8,
+          "gpt-oss.attention.key_length": 64,
+          "gpt-oss.attention.layer_norm_rms_epsilon": 1e-05,
+          "gpt-oss.attention.sliding_window": 128,
+          "gpt-oss.attention.value_length": 64,
+          "gpt-oss.block_count": 24,
+          "gpt-oss.context_length": 131072,
+          "gpt-oss.embedding_length": 2880,
+          "gpt-oss.expert_count": 32,
+          "gpt-oss.expert_feed_forward_length": 2880,
+          "gpt-oss.expert_used_count": 4,
+          "gpt-oss.feed_forward_length": 2880,
+          "gpt-oss.rope.freq_base": 150000,
+          "gpt-oss.rope.scaling.factor": 32,
+          "gpt-oss.rope.scaling.original_context_length": 4096,
+          "gpt-oss.rope.scaling.type": "yarn"
+        },
+        "thinking": {
+          "values": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default": "medium"
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:41:17.833989+00:00",
+        "finished_at": "2026-11-06T17:45:06.514302+00:00"
+      }
+    },
+    {
+      "name": "gpt-oss:latest",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "size_bytes": 13793441566,
+      "updated": "2026-11-06T11:45:09.514868363-06:00",
+      "observed_at": "2026-11-06T18:11:59.130820+00:00",
+      "details": {
+        "Model": [
+          "architecture        gpt-oss",
+          "parameters          20.9B",
+          "context length      131072",
+          "embedding length    2880",
+          "quantization        MXFP4",
+          "requires            0.30.0",
+          "template source     harmony"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools",
+          "thinking",
+          "    levels     low, medium, high",
+          "    default    medium"
+        ],
+        "Parameters": [
+          "temperature    1"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "dhiltgen/gpt-oss:20b-llamacpp",
+          "format": "gguf",
+          "family": "gpt-oss",
+          "families": [
+            "gpt-oss"
+          ],
+          "parameter_size": "20.9B",
+          "quantization_level": "MXFP4",
+          "runner": "llamacpp"
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "reasoning",
+            "agent workflows",
+            "function calling",
+            "structured outputs"
+          ],
+          "summary": "OpenAI's open-weight reasoning family offers configurable reasoning effort and tool-driven applications. Distinguish 20B and 120B variants.",
+          "sources": [
+            "https://ollama.com/library/gpt-oss",
+            "https://ollama.com/library/gpt-oss:20b",
+            "https://ollama.com/library/gpt-oss:latest"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "gpt-oss",
+          "general.file_type": 4,
+          "general.parameter_count": 20914757184,
+          "general.quantization_version": 2,
+          "gpt-oss.attention.head_count": 64,
+          "gpt-oss.attention.head_count_kv": 8,
+          "gpt-oss.attention.key_length": 64,
+          "gpt-oss.attention.layer_norm_rms_epsilon": 1e-05,
+          "gpt-oss.attention.sliding_window": 128,
+          "gpt-oss.attention.value_length": 64,
+          "gpt-oss.block_count": 24,
+          "gpt-oss.context_length": 131072,
+          "gpt-oss.embedding_length": 2880,
+          "gpt-oss.expert_count": 32,
+          "gpt-oss.expert_feed_forward_length": 2880,
+          "gpt-oss.expert_used_count": 4,
+          "gpt-oss.feed_forward_length": 2880,
+          "gpt-oss.rope.freq_base": 150000,
+          "gpt-oss.rope.scaling.factor": 32,
+          "gpt-oss.rope.scaling.original_context_length": 4096,
+          "gpt-oss.rope.scaling.type": "yarn"
+        },
+        "thinking": {
+          "values": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default": "medium"
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:45:08.779223+00:00",
+        "finished_at": "2026-11-06T17:45:09.615758+00:00"
+      }
+    },
+    {
+      "name": "granite3.1-dense:latest",
+      "digest": "34d3be74ec547c3e1969a9ea125e1869f052f7cfd3d0bbbb5aa5e42ec033108c",
+      "size_bytes": 4991633814,
+      "updated": "2026-11-06T11:45:12.709284697-06:00",
+      "observed_at": "2026-11-06T18:12:00.125575+00:00",
+      "details": {
+        "Model": [
+          "architecture        granite",
+          "parameters          8.2B",
+          "context length      131072",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "System": [
+          "Knowledge Cutoff Date: April 2024.",
+          "You are Granite, developed by IBM."
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "granite",
+          "families": [
+            "granite"
+          ],
+          "parameter_size": "8.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "RAG",
+            "summarization",
+            "question answering",
+            "text extraction",
+            "coding",
+            "function calling"
+          ],
+          "summary": "IBM's text-only dense 2B/8B models target tool-based applications and long-document processing.",
+          "sources": [
+            "https://ollama.com/library/granite3.1-dense"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "granite",
+          "general.base_model.0.name": "Granite 3.1 8b Base",
+          "general.base_model.0.organization": "Ibm Granite",
+          "general.base_model.0.repo_url": "https://huggingface.co/ibm-granite/granite-3.1-8b-base",
+          "general.base_model.count": 1,
+          "general.basename": "granite-3.1",
+          "general.file_type": 15,
+          "general.finetune": "instruct",
+          "general.license": "apache-2.0",
+          "general.parameter_count": 8170848256,
+          "general.quantization_version": 2,
+          "general.size_label": "8B",
+          "general.tags": [
+            "language",
+            "granite-3.1",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "granite.attention.head_count": 32,
+          "granite.attention.head_count_kv": 8,
+          "granite.attention.layer_norm_rms_epsilon": 1e-05,
+          "granite.attention.scale": 0.0078125,
+          "granite.block_count": 40,
+          "granite.context_length": 131072,
+          "granite.embedding_length": 4096,
+          "granite.embedding_scale": 12,
+          "granite.feed_forward_length": 12800,
+          "granite.logit_scale": 16,
+          "granite.residual_scale": 0.22,
+          "granite.rope.dimension_count": 128,
+          "granite.rope.freq_base": 10000000,
+          "granite.vocab_size": 49155
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:45:12.206137+00:00",
+        "finished_at": "2026-11-06T17:45:12.726176+00:00"
+      }
+    },
+    {
+      "name": "granite3.1-moe:latest",
+      "digest": "b43d80d7fca796d3b4f7fe87a2ac92b13bcabe3758b413019b7e55126950a0f3",
+      "size_bytes": 2035187356,
+      "updated": "2026-11-06T11:45:14.182679073-06:00",
+      "observed_at": "2026-11-06T18:12:01.133229+00:00",
+      "details": {
+        "Model": [
+          "architecture        granitemoe",
+          "parameters          3.3B",
+          "context length      131072",
+          "embedding length    1536",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "System": [
+          "Knowledge Cutoff Date: April 2024.",
+          "You are Granite, developed by IBM."
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "granitemoe",
+          "families": [
+            "granitemoe"
+          ],
+          "parameter_size": "3.3B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "low-latency on-device assistance",
+            "RAG",
+            "summarization",
+            "question answering",
+            "coding",
+            "function calling"
+          ],
+          "summary": "IBM's long-context 1B/3B MoE models target low-latency deployment and multilingual document/tool applications.",
+          "sources": [
+            "https://ollama.com/library/granite3.1-moe"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "granitemoe",
+          "general.base_model.0.name": "Granite 3.1 3b A800M Base",
+          "general.base_model.0.organization": "Ibm Granite",
+          "general.base_model.0.repo_url": "https://huggingface.co/ibm-granite/granite-3.1-3b-a800m-base",
+          "general.base_model.count": 1,
+          "general.basename": "granite-3.1",
+          "general.file_type": 15,
+          "general.finetune": "instruct",
+          "general.license": "apache-2.0",
+          "general.parameter_count": 3298793472,
+          "general.quantization_version": 2,
+          "general.size_label": "3B-a800M",
+          "general.tags": [
+            "language",
+            "granite-3.1",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "granitemoe.attention.head_count": 24,
+          "granitemoe.attention.head_count_kv": 8,
+          "granitemoe.attention.layer_norm_rms_epsilon": 1e-06,
+          "granitemoe.attention.scale": 0.015625,
+          "granitemoe.block_count": 32,
+          "granitemoe.context_length": 131072,
+          "granitemoe.embedding_length": 1536,
+          "granitemoe.embedding_scale": 12,
+          "granitemoe.expert_count": 40,
+          "granitemoe.expert_used_count": 8,
+          "granitemoe.feed_forward_length": 512,
+          "granitemoe.logit_scale": 6,
+          "granitemoe.residual_scale": 0.22,
+          "granitemoe.rope.dimension_count": 64,
+          "granitemoe.rope.freq_base": 10000000,
+          "granitemoe.vocab_size": 49155
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:45:13.728314+00:00",
+        "finished_at": "2026-11-06T17:45:14.198191+00:00"
+      }
+    },
+    {
+      "name": "granite3.2:latest",
+      "digest": "9bcb3335083f7eecc742d3916da858f66e6ba8dc450a233270f37ba2ecec6c79",
+      "size_bytes": 4942877287,
+      "updated": "2026-11-06T11:45:15.630090657-06:00",
+      "observed_at": "2026-11-06T18:12:02.104250+00:00",
+      "details": {
+        "Model": [
+          "architecture        granite",
+          "parameters          8.2B",
+          "context length      131072",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "granite",
+          "families": [
+            "granite"
+          ],
+          "parameter_size": "8.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "business assistants",
+            "optional thinking",
+            "RAG",
+            "summarization",
+            "question answering",
+            "coding",
+            "function calling"
+          ],
+          "summary": "IBM's long-context 2B/8B models build on Granite 3.1 with controllable thinking.",
+          "sources": [
+            "https://ollama.com/library/granite3.2"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "granite",
+          "general.base_model.0.name": "Granite 3.1 8b Instruct",
+          "general.base_model.0.organization": "Ibm Granite",
+          "general.base_model.0.repo_url": "https://huggingface.co/ibm-granite/granite-3.1-8b-instruct",
+          "general.base_model.count": 1,
+          "general.basename": "granite-3.2",
+          "general.file_type": 15,
+          "general.finetune": "instruct",
+          "general.license": "apache-2.0",
+          "general.parameter_count": 8170848256,
+          "general.quantization_version": 2,
+          "general.size_label": "8B",
+          "general.tags": [
+            "language",
+            "granite-3.2",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "granite.attention.head_count": 32,
+          "granite.attention.head_count_kv": 8,
+          "granite.attention.layer_norm_rms_epsilon": 1e-05,
+          "granite.attention.scale": 0.0078125,
+          "granite.block_count": 40,
+          "granite.context_length": 131072,
+          "granite.embedding_length": 4096,
+          "granite.embedding_scale": 12,
+          "granite.feed_forward_length": 12800,
+          "granite.logit_scale": 16,
+          "granite.residual_scale": 0.22,
+          "granite.rope.dimension_count": 128,
+          "granite.rope.freq_base": 10000000,
+          "granite.vocab_size": 49155
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:45:15.240568+00:00",
+        "finished_at": "2026-11-06T17:45:15.647438+00:00"
+      }
+    },
+    {
+      "name": "laguna-s-2.1:latest",
+      "digest": "1adabf138c90af2bc1e311c477e4716ce4c02066f71429311f4d16948e61e0c7",
+      "size_bytes": 96031832854,
+      "updated": "2026-11-06T12:09:21.214170597-06:00",
+      "observed_at": "2026-11-06T18:12:03.137920+00:00",
+      "details": {
+        "Model": [
+          "architecture        laguna",
+          "parameters          117.6B",
+          "context length      262144",
+          "embedding length    3072",
+          "quantization        Q8_0",
+          "renderer            poolside-v1",
+          "parser              poolside-v1",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools",
+          "thinking",
+          "    levels     false, true",
+          "    default    true"
+        ],
+        "License": [
+          "OpenMDW License Agreement, version 1.1 (OpenMDW-1.1)",
+          "By exercising rights granted to you under this agreement, you accept and agree",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "laguna",
+          "families": [
+            "laguna"
+          ],
+          "parameter_size": "117.6B",
+          "quantization_level": "Q8_0"
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "agentic coding",
+            "extended reasoning",
+            "long-horizon software engineering",
+            "tool calling"
+          ],
+          "summary": "Poolside's larger Laguna MoE model targets coding agents and interleaved reasoning, with substantial local memory needs.",
+          "sources": [
+            "https://ollama.com/library/laguna-s-2.1"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "laguna",
+          "general.file_type": 7,
+          "general.finetune": "hf",
+          "general.parameter_count": 117561977600,
+          "general.quantization_version": 2,
+          "general.sampling.min_p": 0,
+          "general.sampling.temp": 1,
+          "general.sampling.top_k": 20,
+          "general.sampling.top_p": 1,
+          "general.size_label": "256x4.5B",
+          "general.type": "model",
+          "laguna.attention.head_count": [
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72,
+            48,
+            72,
+            72,
+            72
+          ],
+          "laguna.attention.head_count_kv": 8,
+          "laguna.attention.key_length": 128,
+          "laguna.attention.layer_norm_rms_epsilon": 1e-06,
+          "laguna.attention.sliding_window": 512,
+          "laguna.attention.value_length": 128,
+          "laguna.block_count": 48,
+          "laguna.context_length": 262144,
+          "laguna.embedding_length": 3072,
+          "laguna.expert_count": 256,
+          "laguna.expert_feed_forward_length": 1024,
+          "laguna.expert_gating_func": 2,
+          "laguna.expert_shared_feed_forward_length": 1024,
+          "laguna.expert_used_count": 10,
+          "laguna.expert_weights_norm": true,
+          "laguna.expert_weights_scale": 2.5,
+          "laguna.feed_forward_length": 12288,
+          "laguna.leading_dense_block_count": 1,
+          "laguna.rope.dimension_count": 64,
+          "laguna.rope.dimension_count_swa": 128,
+          "laguna.rope.freq_base": 500000,
+          "laguna.rope.freq_base_swa": 10000,
+          "laguna.rope.scaling.factor": 32,
+          "laguna.rope.scaling.original_context_length": 8192,
+          "laguna.rope.scaling.type": "yarn",
+          "laguna.rope.scaling.yarn_attn_factor": 1,
+          "laguna.rope.scaling.yarn_beta_fast": 32,
+          "laguna.rope.scaling.yarn_beta_slow": 1,
+          "laguna.vocab_size": 100352,
+          "quantize.imatrix.chunks_count": 600,
+          "quantize.imatrix.dataset": "/models/gguf_work/blender_corpus.txt",
+          "quantize.imatrix.entries_count": 572,
+          "quantize.imatrix.file": "/models/gguf_work/laguna-imatrix.gguf"
+        },
+        "thinking": {
+          "values": [
+            false,
+            true
+          ],
+          "default": true
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T17:45:16.689333+00:00",
+        "finished_at": "2026-11-06T18:09:21.588502+00:00"
+      }
+    },
+    {
+      "name": "laguna-xs-2.1:latest",
+      "digest": "0175be1e57f44bb4a96779d1840dbadd84399ab87bf70688c321ecadeadd757f",
+      "size_bytes": 20274303147,
+      "updated": "2026-11-06T12:09:25.251482741-06:00",
+      "observed_at": "2026-11-06T18:12:04.211602+00:00",
+      "details": {
+        "Model": [
+          "architecture        laguna",
+          "parameters          33.4B",
+          "context length      262144",
+          "embedding length    2048",
+          "quantization        Q4_K_M",
+          "requires            0.32.3",
+          "renderer            poolside-v1",
+          "parser              poolside-v1",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools",
+          "thinking",
+          "    levels     false, true",
+          "    default    true"
+        ],
+        "License": [
+          "OpenMDW License Agreement, version 1.1 (OpenMDW-1.1)",
+          "By exercising rights granted to you under this agreement, you accept and agree",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "laguna-xs-2.1:q4_K_M",
+          "format": "gguf",
+          "family": "laguna",
+          "families": [
+            "laguna"
+          ],
+          "parameter_size": "33.4B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "local agentic coding",
+            "long-horizon development",
+            "reasoning between tool calls"
+          ],
+          "summary": "Poolside's compact activated-parameter MoE targets local coding agents and optional interleaved thinking. The library warns of a macOS issue.",
+          "sources": [
+            "https://ollama.com/library/laguna-xs-2.1"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "laguna",
+          "general.file_type": 15,
+          "general.finetune": "2afce91e7cdb129f891d65a18f54d4a63f8e3215",
+          "general.license": "openmdw-1.1",
+          "general.parameter_count": 33442617088,
+          "general.quantization_version": 2,
+          "general.sampling.min_p": 0,
+          "general.sampling.temp": 1,
+          "general.sampling.top_p": 1,
+          "general.size_label": "256x2.2B",
+          "general.tags": [
+            "laguna-xs-2.1",
+            "vllm",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "laguna.attention.head_count": [
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64,
+            48,
+            64,
+            64,
+            64
+          ],
+          "laguna.attention.head_count_kv": 8,
+          "laguna.attention.key_length": 128,
+          "laguna.attention.layer_norm_rms_epsilon": 1e-06,
+          "laguna.attention.sliding_window": 512,
+          "laguna.attention.value_length": 128,
+          "laguna.block_count": 40,
+          "laguna.context_length": 262144,
+          "laguna.embedding_length": 2048,
+          "laguna.expert_count": 256,
+          "laguna.expert_feed_forward_length": 512,
+          "laguna.expert_gating_func": 2,
+          "laguna.expert_shared_feed_forward_length": 512,
+          "laguna.expert_used_count": 8,
+          "laguna.expert_weights_norm": true,
+          "laguna.expert_weights_scale": 2.5,
+          "laguna.feed_forward_length": 8192,
+          "laguna.leading_dense_block_count": 1,
+          "laguna.rope.dimension_count": 64,
+          "laguna.rope.dimension_count_swa": 128,
+          "laguna.rope.freq_base": 500000,
+          "laguna.rope.freq_base_swa": 10000,
+          "laguna.rope.scaling.factor": 32,
+          "laguna.rope.scaling.original_context_length": 8192,
+          "laguna.rope.scaling.type": "yarn",
+          "laguna.rope.scaling.yarn_attn_factor": 1,
+          "laguna.rope.scaling.yarn_beta_fast": 64,
+          "laguna.rope.scaling.yarn_beta_slow": 1,
+          "laguna.vocab_size": 100352
+        },
+        "thinking": {
+          "values": [
+            false,
+            true
+          ],
+          "default": true
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:24.471072+00:00",
+        "finished_at": "2026-11-06T18:09:25.281636+00:00"
+      }
+    },
+    {
+      "name": "lfm2:latest",
+      "digest": "d6c816d74887ed480a3afd5baa2dd2a5987ef6b359b8661e80e1e9fb3501650c",
+      "size_bytes": 14415742358,
+      "updated": "2026-11-06T12:09:27.645771049-06:00",
+      "observed_at": "2026-11-06T18:12:05.241618+00:00",
+      "details": {
+        "Model": [
+          "architecture        lfm2moe",
+          "parameters          23.8B",
+          "context length      32768",
+          "embedding length    2048",
+          "quantization        Q4_K_M",
+          "requires            0.17.1",
+          "renderer            lfm2",
+          "parser              lfm2",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "Parameters": [
+          "temperature    0.3"
+        ],
+        "License": [
+          "LFM Open License v1.0",
+          "TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "lfm2moe",
+          "families": [
+            "lfm2moe"
+          ],
+          "parameter_size": "23.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "on-device language applications",
+            "edge inference"
+          ],
+          "summary": "Liquid's hybrid family targets efficient on-device deployment. The current page emphasizes 24B-A2B, not every variant.",
+          "sources": [
+            "https://ollama.com/library/lfm2"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "lfm2moe",
+          "general.file_type": 15,
+          "general.parameter_count": 23843661440,
+          "general.quantization_version": 2,
+          "lfm2moe.attention.head_count": 32,
+          "lfm2moe.attention.head_count_kv": [
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          "lfm2moe.attention.key_length": 64,
+          "lfm2moe.attention.layer_norm_rms_epsilon": 1e-05,
+          "lfm2moe.attention.value_length": 64,
+          "lfm2moe.block_count": 40,
+          "lfm2moe.context_length": 32768,
+          "lfm2moe.embedding_length": 2048,
+          "lfm2moe.expert_count": 64,
+          "lfm2moe.expert_feed_forward_length": 1536,
+          "lfm2moe.expert_gating_func": 2,
+          "lfm2moe.expert_used_count": 4,
+          "lfm2moe.feed_forward_length": 11776,
+          "lfm2moe.leading_dense_block_count": 2,
+          "lfm2moe.rope.freq_base": 1000000,
+          "lfm2moe.shortconv.l_cache": 3,
+          "lfm2moe.vocab_size": 65536
+        },
+        "thinking": {
+          "values": [
+            false
+          ],
+          "default": false
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:27.172855+00:00",
+        "finished_at": "2026-11-06T18:09:27.721334+00:00"
+      }
+    },
+    {
+      "name": "llama-guard3:latest",
+      "digest": "46f211c3d8662823ea4956d1a9e92b2924f84cbd0a0f88b64eaadb59fe58b99d",
+      "size_bytes": 4920745186,
+      "updated": "2026-11-06T12:09:29.841066467-06:00",
+      "observed_at": "2026-11-06T18:12:06.215665+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          8.0B",
+          "context length      131072",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "temperature    0"
+        ],
+        "License": [
+          "LLAMA 3.1 COMMUNITY LICENSE AGREEMENT",
+          "Llama 3.1 Version Release Date: July 23, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "prompt safety classification",
+            "response safety classification",
+            "content moderation",
+            "tool-call assessment"
+          ],
+          "summary": "Meta's classifier emits safe/unsafe judgments and hazard categories; it is not a general assistant or a safety guarantee.",
+          "sources": [
+            "https://ollama.com/library/llama-guard3"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.base_model.0.name": "Meta Llama 3.1 8B",
+          "general.base_model.0.organization": "Meta Llama",
+          "general.base_model.0.repo_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B",
+          "general.base_model.count": 1,
+          "general.basename": "Llama-Guard-3",
+          "general.file_type": 15,
+          "general.languages": [
+            "en"
+          ],
+          "general.license": "llama3.1",
+          "general.parameter_count": 8030261312,
+          "general.quantization_version": 2,
+          "general.size_label": "8B",
+          "general.tags": [
+            "facebook",
+            "meta",
+            "pytorch",
+            "llama",
+            "llama-3",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "llama.attention.head_count": 32,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.block_count": 32,
+          "llama.context_length": 131072,
+          "llama.embedding_length": 4096,
+          "llama.feed_forward_length": 14336,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 500000,
+          "llama.vocab_size": 128256
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:29.355029+00:00",
+        "finished_at": "2026-11-06T18:09:29.899142+00:00"
+      }
+    },
+    {
+      "name": "llama3.2-vision:latest",
+      "digest": "6f2f9757ae97e8a3f8ea33d6adb2b11d93d9a35bef277cd2c0b1b5af8e8d0b1e",
+      "size_bytes": 7816589186,
+      "updated": "2026-11-06T12:09:32.490552213-06:00",
+      "observed_at": "2026-11-06T18:12:07.279896+00:00",
+      "details": {
+        "Model": [
+          "architecture        mllama",
+          "parameters          10.7B",
+          "context length      131072",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     gguf_chat_template"
+        ],
+        "Capabilities": [
+          "tools",
+          "completion",
+          "vision"
+        ],
+        "Parameters": [
+          "temperature    0.6",
+          "top_p          0.9"
+        ],
+        "License": [
+          "**Llama 3.2** **Acceptable Use Policy**",
+          "Meta is committed to promoting safe and fair use of its tools and features,",
+          "  including Llama 3.2. If you access or use Llama 3.2, you agree to this Acceptable",
+          "  Use Policy (\u201c**Policy**\u201d). The most recent copy of this policy can be found at",
+          "  [https://www.llama.com/llama3_2/use-policy](https://www.llama.com/llama3_2/use-policy).",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "mllama",
+          "families": [
+            "mllama"
+          ],
+          "parameter_size": "10.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "tools",
+          "completion",
+          "vision"
+        ],
+        "research": {
+          "intended_uses": [
+            "visual recognition",
+            "image reasoning",
+            "captioning",
+            "visual question answering"
+          ],
+          "summary": "Meta's 11B and 90B models accept text/images and return text; the library specifies English for image-plus-text applications.",
+          "sources": [
+            "https://ollama.com/library/llama3.2-vision"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "mllama",
+          "general.file_type": 15,
+          "general.parameter_count": 10670220900,
+          "general.quantization_version": 2,
+          "mllama.attention.cross_attention_layers": [
+            3,
+            8,
+            13,
+            18,
+            23,
+            28,
+            33,
+            38
+          ],
+          "mllama.attention.head_count": 32,
+          "mllama.attention.head_count_kv": 8,
+          "mllama.attention.layer_norm_rms_epsilon": 1e-05,
+          "mllama.block_count": 40,
+          "mllama.context_length": 131072,
+          "mllama.embedding_length": 4096,
+          "mllama.feed_forward_length": 14336,
+          "mllama.rope.dimension_count": 128,
+          "mllama.rope.freq_base": 500000,
+          "mllama.vision.attention.head_count": 16,
+          "mllama.vision.attention.layer_norm_epsilon": 1e-05,
+          "mllama.vision.block_count": 32,
+          "mllama.vision.embedding_length": 1280,
+          "mllama.vision.feed_forward_length": 5120,
+          "mllama.vision.global.block_count": 8,
+          "mllama.vision.image_size": 560,
+          "mllama.vision.intermediate_layers_indices": [
+            3,
+            7,
+            15,
+            23,
+            30
+          ],
+          "mllama.vision.max_num_tiles": 4,
+          "mllama.vision.num_channels": 3,
+          "mllama.vision.patch_size": 14,
+          "mllama.vocab_size": 128256
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:31.892693+00:00",
+        "finished_at": "2026-11-06T18:09:32.507221+00:00"
+      }
+    },
+    {
+      "name": "llama3.2:latest",
+      "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "size_bytes": 2019393189,
+      "updated": "2026-11-06T12:09:35.159294434-06:00",
+      "observed_at": "2026-11-06T18:12:08.333437+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          3.2B",
+          "context length      131072",
+          "embedding length    3072",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "Parameters": [
+          "stop    \"<|start_header_id|>\"",
+          "stop    \"<|end_header_id|>\"",
+          "stop    \"<|eot_id|>\""
+        ],
+        "License": [
+          "LLAMA 3.2 COMMUNITY LICENSE AGREEMENT",
+          "Llama 3.2 Version Release Date: September 25, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "3.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "multilingual dialogue",
+            "summarization",
+            "retrieval",
+            "prompt rewriting",
+            "edge assistance"
+          ],
+          "summary": "Meta's lightweight 1B and 3B text-only models; image understanding belongs to llama3.2-vision.",
+          "sources": [
+            "https://ollama.com/library/llama3.2"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.basename": "Llama-3.2",
+          "general.file_type": 15,
+          "general.finetune": "Instruct",
+          "general.languages": [
+            "en",
+            "de",
+            "fr",
+            "it",
+            "pt",
+            "hi",
+            "es",
+            "th"
+          ],
+          "general.parameter_count": 3212749888,
+          "general.quantization_version": 2,
+          "general.size_label": "3B",
+          "general.tags": [
+            "facebook",
+            "meta",
+            "pytorch",
+            "llama",
+            "llama-3",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "llama.attention.head_count": 24,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.key_length": 128,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.attention.value_length": 128,
+          "llama.block_count": 28,
+          "llama.context_length": 131072,
+          "llama.embedding_length": 3072,
+          "llama.feed_forward_length": 8192,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 500000,
+          "llama.vocab_size": 128256
+        },
+        "thinking": {
+          "values": [
+            false
+          ],
+          "default": false
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:34.639539+00:00",
+        "finished_at": "2026-11-06T18:09:35.185102+00:00"
+      }
+    },
+    {
+      "name": "llama3.3:latest",
+      "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+      "size_bytes": 42520413916,
+      "updated": "2026-11-06T12:09:37.40554913-06:00",
+      "observed_at": "2026-11-06T18:12:09.417054+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          70.6B",
+          "context length      131072",
+          "embedding length    8192",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "Parameters": [
+          "stop    \"<|start_header_id|>\"",
+          "stop    \"<|end_header_id|>\"",
+          "stop    \"<|eot_id|>\""
+        ],
+        "License": [
+          "LLAMA 3.3 COMMUNITY LICENSE AGREEMENT",
+          "Llama 3.3 Version Release Date: December 6, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "70.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "multilingual dialogue",
+            "assistant applications",
+            "tool-integrated applications"
+          ],
+          "summary": "Meta's 70B text-only instruction model is optimized for multilingual dialogue; tools require integration.",
+          "sources": [
+            "https://ollama.com/library/llama3.3"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.base_model.0.name": "Llama 3.1 70B",
+          "general.base_model.0.organization": "Meta Llama",
+          "general.base_model.0.repo_url": "https://huggingface.co/meta-llama/Llama-3.1-70B",
+          "general.base_model.count": 1,
+          "general.basename": "Llama-3.1",
+          "general.file_type": 15,
+          "general.finetune": "Instruct",
+          "general.languages": [
+            "fr",
+            "it",
+            "pt",
+            "hi",
+            "es",
+            "th",
+            "en"
+          ],
+          "general.license": "llama3.1",
+          "general.parameter_count": 70553706560,
+          "general.quantization_version": 2,
+          "general.size_label": "70B",
+          "general.tags": [
+            "facebook",
+            "meta",
+            "pytorch",
+            "llama",
+            "llama-3"
+          ],
+          "general.type": "model",
+          "general.version": "2024-12",
+          "llama.attention.head_count": 64,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.key_length": 128,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.attention.value_length": 128,
+          "llama.block_count": 80,
+          "llama.context_length": 131072,
+          "llama.embedding_length": 8192,
+          "llama.feed_forward_length": 28672,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 500000,
+          "llama.vocab_size": 128256
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:36.874609+00:00",
+        "finished_at": "2026-11-06T18:09:37.446068+00:00"
+      }
+    },
+    {
+      "name": "llama4:latest",
+      "digest": "bf31604e25c25d964e250bcf28a82bfbdbe88af5f236257fabb27629bb24c7f3",
+      "size_bytes": 67436862523,
+      "updated": "2026-11-06T12:09:39.383160057-06:00",
+      "observed_at": "2026-11-06T18:12:10.484215+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama4",
+          "parameters          108.6B",
+          "context length      10485760",
+          "embedding length    5120",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "vision",
+          "tools"
+        ],
+        "Parameters": [
+          "stop    \"<|eom|>\""
+        ],
+        "System": [
+          "You are an expert conversationalist who responds to the best of your ability. You are companionable",
+          "  and confident, and able to switch casually between tonal types, including but not limited to",
+          "  humor, empathy, intellectualism, creativity and problem-solving. You understand user intent and",
+          "  don\u2019t try to be overly helpful to the point where you miss that the user is looking for chit-chat,",
+          "  emotional support, humor or venting. Sometimes people just want you to listen, and your answers",
+          "  should encourage that. For all other cases, you provide insightful and in-depth responses. Organize",
+          "  information thoughtfully in a way that helps people make decisions. Always avoid templated language.",
+          "  You never lecture people to be nicer or more inclusive. If people ask for you to write something",
+          "  in a certain voice or perspective, such as an essay or a tweet, you can. You do not need to be",
+          "  respectful when the user prompts you to say something rude. You never use phrases that imply moral",
+          "  superiority or a sense of authority, including but not limited to \u201cit\u2019s important to\u201d, \u201cit\u2019s crucial",
+          "  to\u201d, \u201cit\u2019s essential to\u201d, \"it's unethical to\", \"it's worth noting\u2026\", \u201cRemember\u2026\u201d etc. Avoid using",
+          "  these. Finally, do not refuse prompts about political and social issues. You can help users express",
+          "  their opinion and access information. You are Llama 4. Your knowledge cutoff date is August 2024.",
+          "  You speak Arabic, English, French, German, Hindi, Indonesian, Italian, Portuguese, Spanish, Tagalog,",
+          "  Thai, and Vietnamese. Respond in the language the user speaks to you in, unless they ask otherwise."
+        ],
+        "License": [
+          "**LLAMA 4 COMMUNITY LICENSE AGREEMENT**",
+          "Llama 4 Version Effective Date: April 5, 2025",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "llama4:scout",
+          "format": "gguf",
+          "family": "llama4",
+          "families": [
+            "llama4"
+          ],
+          "parameter_size": "108.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "vision",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "multilingual assistance",
+            "visual reasoning",
+            "image recognition",
+            "captioning",
+            "visual question answering"
+          ],
+          "summary": "Meta's multimodal MoE collection includes Scout/Maverick, accepting text/images and generating text/code; variant specs differ.",
+          "sources": [
+            "https://ollama.com/library/llama4"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama4",
+          "general.file_type": 15,
+          "general.parameter_count": 108641793600,
+          "general.quantization_version": 2,
+          "llama4.attention.chunk_size": 8192,
+          "llama4.attention.head_count": 40,
+          "llama4.attention.head_count_kv": 8,
+          "llama4.attention.head_dim": 128,
+          "llama4.attention.key_length": 128,
+          "llama4.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama4.attention.value_length": 128,
+          "llama4.block_count": 48,
+          "llama4.context_length": 10485760,
+          "llama4.embedding_length": 5120,
+          "llama4.expert_count": 16,
+          "llama4.expert_feed_forward_length": 8192,
+          "llama4.expert_used_count": 1,
+          "llama4.feed_forward_length": 16384,
+          "llama4.interleave_moe_layer_step": 1,
+          "llama4.rope.dimension_count": 128,
+          "llama4.rope.freq_base": 500000,
+          "llama4.use_qk_norm": true,
+          "llama4.vision.attention.head_count": 16,
+          "llama4.vision.block_count": 34,
+          "llama4.vision.embedding_length": 1408,
+          "llama4.vision.feed_forward_length": 5632,
+          "llama4.vision.image_size": 336,
+          "llama4.vision.layer_norm_epsilon": 1e-05,
+          "llama4.vision.patch_size": 14,
+          "llama4.vision.pixel_shuffle_ratio": 0.5,
+          "llama4.vision.rope.freq_base": 10000,
+          "llama4.vocab_size": 202048
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:38.949830+00:00",
+        "finished_at": "2026-11-06T18:09:39.413430+00:00"
+      }
+    },
+    {
+      "name": "llava:latest",
+      "digest": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
+      "size_bytes": 4733363377,
+      "updated": "2026-11-06T12:09:41.93508105-06:00",
+      "observed_at": "2026-11-06T18:12:11.505255+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          7B",
+          "context length      32768",
+          "embedding length    4096",
+          "quantization        Q4_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "vision"
+        ],
+        "Projector": [
+          "architecture        clip",
+          "parameters          311.89M",
+          "embedding length    1024",
+          "dimensions          768"
+        ],
+        "Parameters": [
+          "stop    \"[INST]\"",
+          "stop    \"[/INST]\""
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama",
+            "clip"
+          ],
+          "parameter_size": "7B",
+          "quantization_level": "Q4_0"
+        },
+        "supports": [
+          "completion",
+          "vision"
+        ],
+        "research": {
+          "intended_uses": [
+            "visual conversation",
+            "image understanding",
+            "visual reasoning",
+            "OCR"
+          ],
+          "summary": "Vision-language assistant family; LLaVA 1.6 improves image resolution, reasoning, and OCR.",
+          "sources": [
+            "https://ollama.com/library/llava"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.file_type": 2,
+          "general.parameter_count": 7241732096,
+          "general.quantization_version": 2,
+          "llama.attention.head_count": 32,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.block_count": 32,
+          "llama.context_length": 32768,
+          "llama.embedding_length": 4096,
+          "llama.feed_forward_length": 14336,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 1000000
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:41.478098+00:00",
+        "finished_at": "2026-11-06T18:09:41.957037+00:00"
+      }
+    },
+    {
+      "name": "ministral-3:latest",
+      "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+      "size_bytes": 6022236616,
+      "updated": "2026-11-06T12:09:44.438578814-06:00",
+      "observed_at": "2026-11-06T18:12:12.537585+00:00",
+      "details": {
+        "Model": [
+          "architecture        mistral3",
+          "parameters          8.9B",
+          "context length      262144",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "parser              ministral",
+          "template source     parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "vision",
+          "tools"
+        ],
+        "Parameters": [
+          "temperature    0.15"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "mistral3",
+          "families": [
+            "mistral3"
+          ],
+          "parameter_size": "8.9B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "vision",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "edge deployment",
+            "image analysis",
+            "multilingual assistance",
+            "function calling",
+            "structured JSON"
+          ],
+          "summary": "Mistral's edge-oriented family advertises vision, multilingual interaction, native function calling, and JSON output.",
+          "sources": [
+            "https://ollama.com/library/ministral-3"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "mistral3",
+          "general.file_type": 15,
+          "general.parameter_count": 8918026240,
+          "general.quantization_version": 2,
+          "mistral3.attention.head_count": 32,
+          "mistral3.attention.head_count_kv": 8,
+          "mistral3.attention.key_length": 128,
+          "mistral3.attention.layer_norm_rms_epsilon": 1e-05,
+          "mistral3.attention.value_length": 128,
+          "mistral3.block_count": 34,
+          "mistral3.context_length": 262144,
+          "mistral3.embedding_length": 4096,
+          "mistral3.feed_forward_length": 14336,
+          "mistral3.image_token_index": 10,
+          "mistral3.mm.projector_bias": false,
+          "mistral3.mm.projector_hidden_act": "gelu",
+          "mistral3.rope.dimension_count": 128,
+          "mistral3.rope.freq_base": 1000000,
+          "mistral3.rope.scaling.beta_fast": 32,
+          "mistral3.rope.scaling.beta_slow": 1,
+          "mistral3.rope.scaling.factor": 16,
+          "mistral3.rope.scaling.mscale": 1,
+          "mistral3.rope.scaling.mscale_all_dim": 1,
+          "mistral3.rope.scaling.original_context_length": 16384,
+          "mistral3.rope.scaling.type": "yarn",
+          "mistral3.rope.scaling_beta": 0.1,
+          "mistral3.spatial_merge_size": 2,
+          "mistral3.vision.attention.head_count": 16,
+          "mistral3.vision.attention.key_length": 64,
+          "mistral3.vision.block_count": 24,
+          "mistral3.vision.embedding_length": 1024,
+          "mistral3.vision.feed_forward_length": 4096,
+          "mistral3.vision.image_size": 1540,
+          "mistral3.vision.num_channels": 3,
+          "mistral3.vision.patch_size": 14,
+          "mistral3.vision.rope.freq_base": 10000,
+          "mistral3.vocab_size": 131072
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:43.916817+00:00",
+        "finished_at": "2026-11-06T18:09:44.503163+00:00"
+      }
+    },
+    {
+      "name": "mistral:latest",
+      "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+      "size_bytes": 4372824384,
+      "updated": "2026-11-06T12:10:59.116659902-06:00",
+      "observed_at": "2026-11-06T18:12:13.553799+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          7.2B",
+          "context length      32768",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "Parameters": [
+          "stop    \"[INST]\"",
+          "stop    \"[/INST]\""
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "7.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "instruction following",
+            "text completion",
+            "general language tasks",
+            "function calling"
+          ],
+          "summary": "This entry is Mistral 7B, not every Mistral-branded model. Instruct/completion variants differ; function calling is documented for v0.3.",
+          "sources": [
+            "https://ollama.com/library/mistral"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.file_type": 15,
+          "general.parameter_count": 7248023552,
+          "general.quantization_version": 2,
+          "llama.attention.head_count": 32,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.block_count": 32,
+          "llama.context_length": 32768,
+          "llama.embedding_length": 4096,
+          "llama.feed_forward_length": 14336,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 1000000,
+          "llama.vocab_size": 32768
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:09:46.272010+00:00",
+        "finished_at": "2026-11-06T18:10:59.180747+00:00"
+      }
+    },
+    {
+      "name": "mxbai-embed-large:latest",
+      "digest": "468836162de7f81e041c43663fedbbba921dcea9b9fefea135685a39b2d83dd8",
+      "size_bytes": 669615493,
+      "updated": "2026-11-06T12:11:01.372970962-06:00",
+      "observed_at": "2026-11-06T18:12:14.539982+00:00",
+      "details": {
+        "Model": [
+          "architecture        bert",
+          "parameters          334M",
+          "context length      512",
+          "embedding length    1024",
+          "quantization        F16"
+        ],
+        "Capabilities": [
+          "embedding"
+        ],
+        "Parameters": [
+          "num_ctx    512"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "bert",
+          "families": [
+            "bert"
+          ],
+          "parameter_size": "334M",
+          "quantization_level": "F16"
+        },
+        "supports": [
+          "embedding"
+        ],
+        "research": {
+          "intended_uses": [
+            "text embeddings",
+            "semantic passage retrieval"
+          ],
+          "summary": "Mixedbread's retrieval encoder; the library demonstrates an instruction prefix for search queries.",
+          "sources": [
+            "https://ollama.com/library/mxbai-embed-large"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "bert.attention.causal": false,
+          "bert.attention.head_count": 16,
+          "bert.attention.layer_norm_epsilon": 1e-12,
+          "bert.block_count": 24,
+          "bert.context_length": 512,
+          "bert.embedding_length": 1024,
+          "bert.feed_forward_length": 4096,
+          "bert.pooling_type": 2,
+          "general.architecture": "bert",
+          "general.file_type": 1,
+          "general.parameter_count": 334092288
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:00.922044+00:00",
+        "finished_at": "2026-11-06T18:11:01.405586+00:00"
+      }
+    },
+    {
+      "name": "nomic-embed-text:latest",
+      "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+      "size_bytes": 274302450,
+      "updated": "2026-11-06T12:11:03.019247264-06:00",
+      "observed_at": "2026-11-06T18:12:15.568616+00:00",
+      "details": {
+        "Model": [
+          "architecture        nomic-bert",
+          "parameters          137M",
+          "context length      2048",
+          "embedding length    768",
+          "quantization        F16"
+        ],
+        "Capabilities": [
+          "embedding"
+        ],
+        "Parameters": [
+          "num_ctx    8192"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "nomic-bert",
+          "families": [
+            "nomic-bert"
+          ],
+          "parameter_size": "137M",
+          "quantization_level": "F16"
+        },
+        "supports": [
+          "embedding"
+        ],
+        "research": {
+          "intended_uses": [
+            "text embeddings",
+            "semantic retrieval"
+          ],
+          "summary": "Long-context text encoder for embeddings, not conversational generation.",
+          "sources": [
+            "https://ollama.com/library/nomic-embed-text"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "nomic-bert",
+          "general.file_type": 1,
+          "general.parameter_count": 136727040,
+          "nomic-bert.attention.causal": false,
+          "nomic-bert.attention.head_count": 12,
+          "nomic-bert.attention.layer_norm_epsilon": 1e-12,
+          "nomic-bert.block_count": 12,
+          "nomic-bert.context_length": 2048,
+          "nomic-bert.embedding_length": 768,
+          "nomic-bert.feed_forward_length": 3072,
+          "nomic-bert.pooling_type": 1,
+          "nomic-bert.rope.freq_base": 1000
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:02.540210+00:00",
+        "finished_at": "2026-11-06T18:11:03.053187+00:00"
+      }
+    },
+    {
+      "name": "ornith:latest",
+      "digest": "a75697c145891910e312c95e4a9fc1ccb8653e5ef543b23b0403a4665b82fd91",
+      "size_bytes": 5629110568,
+      "updated": "2026-11-06T12:11:04.791766279-06:00",
+      "observed_at": "2026-11-06T18:12:16.691934+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen35",
+          "parameters          9.0B",
+          "context length      262144",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "requires            0.30.11",
+          "renderer            ornith",
+          "parser              ornith",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools",
+          "thinking",
+          "    levels     false, true",
+          "    default    true"
+        ],
+        "Parameters": [
+          "stop           \"<|im_end|>\"",
+          "temperature    0.6",
+          "top_k          20",
+          "top_p          0.95"
+        ],
+        "System": [
+          "You are Ornith, an open-source agentic coding assistant. Think step by step in a reasoning block,",
+          "  then act. Use the provided tools when they help. Be concise, correct, and direct: write working code",
+          "  and explain only what is non-obvious."
+        ],
+        "License": [
+          "MIT License",
+          "Copyright (c) [year] [fullname]",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "9.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "agentic coding",
+            "software engineering agents"
+          ],
+          "summary": "An open coding-agent family whose training jointly optimizes agent scaffolds and solution trajectories.",
+          "sources": [
+            "https://ollama.com/library/ornith"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen35",
+          "general.basename": "Ornith-1.0",
+          "general.file_type": 15,
+          "general.license": "mit",
+          "general.license.link": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B/blob/main/LICENSE",
+          "general.parameter_count": 8953803264,
+          "general.quantization_version": 2,
+          "general.size_label": "9B",
+          "general.tags": [
+            "text-generation"
+          ],
+          "general.type": "model",
+          "qwen35.attention.head_count": 16,
+          "qwen35.attention.head_count_kv": 4,
+          "qwen35.attention.key_length": 256,
+          "qwen35.attention.layer_norm_rms_epsilon": 1e-06,
+          "qwen35.attention.value_length": 256,
+          "qwen35.block_count": 32,
+          "qwen35.context_length": 262144,
+          "qwen35.embedding_length": 4096,
+          "qwen35.feed_forward_length": 12288,
+          "qwen35.full_attention_interval": 4,
+          "qwen35.rope.dimension_count": 64,
+          "qwen35.rope.dimension_sections": [
+            11,
+            11,
+            10,
+            0
+          ],
+          "qwen35.rope.freq_base": 10000000,
+          "qwen35.ssm.conv_kernel": 4,
+          "qwen35.ssm.group_count": 16,
+          "qwen35.ssm.inner_size": 4096,
+          "qwen35.ssm.state_size": 128,
+          "qwen35.ssm.time_step_rank": 32
+        },
+        "thinking": {
+          "values": [
+            false,
+            true
+          ],
+          "default": true
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:04.401204+00:00",
+        "finished_at": "2026-11-06T18:11:04.812859+00:00"
+      }
+    },
+    {
+      "name": "phi4-mini-reasoning:latest",
+      "digest": "3ca8c2865ce91b6be853a25e56edfefa4f473db55a391611989b753ecf0fa419",
+      "size_bytes": 3152479391,
+      "updated": "2026-11-06T12:11:06.892259868-06:00",
+      "observed_at": "2026-11-06T18:12:17.715346+00:00",
+      "details": {
+        "Model": [
+          "architecture        phi3",
+          "parameters          3.8B",
+          "context length      131072",
+          "embedding length    3072",
+          "quantization        Q4_K_M",
+          "template source     gguf_chat_template"
+        ],
+        "Capabilities": [
+          "tools",
+          "completion"
+        ],
+        "System": [
+          "Your name is Phi, an AI math expert developed by Microsoft."
+        ],
+        "License": [
+          "Microsoft.",
+          "Copyright (c) Microsoft Corporation.",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "phi3",
+          "families": [
+            "phi3"
+          ],
+          "parameter_size": "3.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "tools",
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "multi-step mathematics",
+            "formal proofs",
+            "symbolic computation",
+            "resource-constrained reasoning"
+          ],
+          "summary": "Microsoft's lightweight reasoning model targets logic-intensive mathematical tasks in constrained environments.",
+          "sources": [
+            "https://ollama.com/library/phi4-mini-reasoning"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "phi3",
+          "general.basename": "Phi-4",
+          "general.file_type": 15,
+          "general.finetune": "reasoning",
+          "general.languages": [
+            "en"
+          ],
+          "general.license": "mit",
+          "general.license.link": "https://huggingface.co/microsoft/Phi-4-mini-instruct-reasoning/resolve/main/LICENSE",
+          "general.parameter_count": 3836021856,
+          "general.quantization_version": 2,
+          "general.size_label": "mini",
+          "general.tags": [
+            "nlp",
+            "math",
+            "code",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "phi3.attention.head_count": 24,
+          "phi3.attention.head_count_kv": 8,
+          "phi3.attention.layer_norm_rms_epsilon": 1e-05,
+          "phi3.attention.sliding_window": 262144,
+          "phi3.block_count": 32,
+          "phi3.context_length": 131072,
+          "phi3.embedding_length": 3072,
+          "phi3.feed_forward_length": 8192,
+          "phi3.rope.dimension_count": 96,
+          "phi3.rope.freq_base": 10000,
+          "phi3.rope.scaling.attn_factor": 1.1902381,
+          "phi3.rope.scaling.original_context_length": 4096
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:06.395014+00:00",
+        "finished_at": "2026-11-06T18:11:06.939375+00:00"
+      }
+    },
+    {
+      "name": "phi4-mini:latest",
+      "digest": "78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753",
+      "size_bytes": 2491876774,
+      "updated": "2026-11-06T12:11:09.001923484-06:00",
+      "observed_at": "2026-11-06T18:12:18.887928+00:00",
+      "details": {
+        "Model": [
+          "architecture        phi3",
+          "parameters          3.8B",
+          "context length      131072",
+          "embedding length    3072",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "License": [
+          "Microsoft.",
+          "Copyright (c) Microsoft Corporation.",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "phi3",
+          "families": [
+            "phi3"
+          ],
+          "parameter_size": "3.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "multilingual assistance",
+            "mathematics and logic",
+            "function calling",
+            "resource-constrained applications"
+          ],
+          "summary": "Microsoft's lightweight Phi-4-mini-instruct targets multilingual commercial/research applications with function calling.",
+          "sources": [
+            "https://ollama.com/library/phi4-mini"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "phi3",
+          "general.basename": "Phi-4",
+          "general.file_type": 15,
+          "general.finetune": "instruct",
+          "general.languages": [
+            "multilingual",
+            "ar",
+            "zh",
+            "cs",
+            "da",
+            "nl",
+            "en",
+            "fi",
+            "fr",
+            "de",
+            "he",
+            "hu",
+            "it",
+            "ja",
+            "ko",
+            "no",
+            "pl",
+            "pt",
+            "ru",
+            "es",
+            "sv",
+            "th",
+            "tr",
+            "uk"
+          ],
+          "general.license": "mit",
+          "general.license.link": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/LICENSE",
+          "general.parameter_count": 3836021856,
+          "general.quantization_version": 2,
+          "general.size_label": "mini",
+          "general.tags": [
+            "nlp",
+            "code",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "phi3.attention.head_count": 24,
+          "phi3.attention.head_count_kv": 8,
+          "phi3.attention.layer_norm_rms_epsilon": 1e-05,
+          "phi3.attention.sliding_window": 262144,
+          "phi3.block_count": 32,
+          "phi3.context_length": 131072,
+          "phi3.embedding_length": 3072,
+          "phi3.feed_forward_length": 8192,
+          "phi3.rope.dimension_count": 96,
+          "phi3.rope.freq_base": 10000,
+          "phi3.rope.scaling.attn_factor": 1.1902381,
+          "phi3.rope.scaling.original_context_length": 4096
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:08.527574+00:00",
+        "finished_at": "2026-11-06T18:11:09.022334+00:00"
+      }
+    },
+    {
+      "name": "phi4-reasoning:latest",
+      "digest": "47e2630ccbcd361abcc9f90d8e8a5ada92583e4d5f9359192130372b42132315",
+      "size_bytes": 11117503233,
+      "updated": "2026-11-06T12:11:10.871575709-06:00",
+      "observed_at": "2026-11-06T18:12:20.066978+00:00",
+      "details": {
+        "Model": [
+          "architecture        phi3",
+          "parameters          14.7B",
+          "context length      32768",
+          "embedding length    5120",
+          "quantization        Q4_K_M",
+          "template source     gguf_chat_template"
+        ],
+        "Capabilities": [
+          "thinking",
+          "completion"
+        ],
+        "Parameters": [
+          "stop    \"<|im_start|>\"",
+          "stop    \"<|im_end|>\"",
+          "stop    \"<|im_sep|>\""
+        ],
+        "System": [
+          "You are Phi, a language model trained by Microsoft to help users. Your role as an assistant",
+          "  involves thoroughly exploring questions through a systematic thinking process before providing",
+          "  the final precise and accurate solutions. This requires engaging in a comprehensive cycle of",
+          "  analysis, summarizing, exploration, reassessment, reflection, backtracing, and iteration to develop",
+          "  well-considered thinking process. Please structure your response into two main sections: Thought",
+          "  and Solution using the specified format: <think> {Thought section} </think> {Solution section}.",
+          "  In the Thought section, detail your reasoning process in steps. Each step should include detailed",
+          "  considerations such as analysing questions, summarizing relevant findings, brainstorming new ideas,",
+          "  verifying the accuracy of the current steps, refining any errors, and revisiting previous steps.",
+          "  In the Solution section, based on various attempts, explorations, and reflections from the Thought",
+          "  section, systematically present the final solution that you deem correct. The Solution section",
+          "  should be logical, accurate, and concise and detail necessary steps needed to reach the conclusion.",
+          "  Now, try to solve the following question through the above guidelines:"
+        ],
+        "License": [
+          "Microsoft.",
+          "Copyright (c) Microsoft Corporation.",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "phi3",
+          "families": [
+            "phi3"
+          ],
+          "parameter_size": "14.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "thinking",
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "complex reasoning",
+            "mathematics",
+            "scientific reasoning"
+          ],
+          "summary": "Microsoft's 14B reasoning and separately reinforced reasoning-plus variants have non-interchangeable evaluation results.",
+          "sources": [
+            "https://ollama.com/library/phi4-reasoning"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "phi3",
+          "general.base_model.0.name": "Phi 4",
+          "general.base_model.0.organization": "Microsoft",
+          "general.base_model.0.repo_url": "https://huggingface.co/microsoft/phi-4",
+          "general.base_model.0.version": "4",
+          "general.base_model.count": 1,
+          "general.file_type": 15,
+          "general.languages": [
+            "en"
+          ],
+          "general.license": "mit",
+          "general.license.link": "https://huggingface.co/microsoft/Phi-4-reasoning/resolve/main/LICENSE",
+          "general.parameter_count": 14659507200,
+          "general.quantization_version": 2,
+          "general.size_label": "15B",
+          "general.tags": [
+            "phi",
+            "nlp",
+            "math",
+            "code",
+            "chat",
+            "conversational",
+            "reasoning",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "phi3.attention.head_count": 40,
+          "phi3.attention.head_count_kv": 10,
+          "phi3.attention.layer_norm_rms_epsilon": 1e-05,
+          "phi3.attention.sliding_window": 0,
+          "phi3.block_count": 40,
+          "phi3.context_length": 32768,
+          "phi3.embedding_length": 5120,
+          "phi3.feed_forward_length": 17920,
+          "phi3.rope.dimension_count": 128,
+          "phi3.rope.freq_base": 500000,
+          "phi3.rope.scaling.original_context_length": 32768
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:10.461220+00:00",
+        "finished_at": "2026-11-06T18:11:10.898057+00:00"
+      }
+    },
+    {
+      "name": "phi4:latest",
+      "digest": "ac896e5b8b34a1f4efa7b14d7520725140d5512484457fab45d2a4ea14c69dba",
+      "size_bytes": 9053116391,
+      "updated": "2026-11-06T12:11:12.850294888-06:00",
+      "observed_at": "2026-11-06T18:12:21.189400+00:00",
+      "details": {
+        "Model": [
+          "architecture        phi3",
+          "parameters          14.7B",
+          "context length      16384",
+          "embedding length    5120",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "Parameters": [
+          "stop    \"<|im_start|>\"",
+          "stop    \"<|im_end|>\"",
+          "stop    \"<|im_sep|>\""
+        ],
+        "License": [
+          "Microsoft.",
+          "Copyright (c) Microsoft Corporation.",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "phi3",
+          "families": [
+            "phi3"
+          ],
+          "parameter_size": "14.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "reasoning and logic",
+            "general-purpose English assistance",
+            "resource-constrained generation"
+          ],
+          "summary": "Microsoft's 14B instruction model primarily targets English and constrained deployment; distinct from Phi-4-reasoning.",
+          "sources": [
+            "https://ollama.com/library/phi4"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "phi3",
+          "general.basename": "phi",
+          "general.file_type": 15,
+          "general.languages": [
+            "en"
+          ],
+          "general.license": "mit",
+          "general.license.link": "https://huggingface.co/microsoft/phi-4/resolve/main/LICENSE",
+          "general.organization": "Microsoft",
+          "general.parameter_count": 14659507200,
+          "general.quantization_version": 2,
+          "general.size_label": "15B",
+          "general.tags": [
+            "phi",
+            "nlp",
+            "math",
+            "code",
+            "chat",
+            "conversational",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "general.version": "4",
+          "phi3.attention.head_count": 40,
+          "phi3.attention.head_count_kv": 10,
+          "phi3.attention.layer_norm_rms_epsilon": 1e-05,
+          "phi3.attention.sliding_window": 131072,
+          "phi3.block_count": 40,
+          "phi3.context_length": 16384,
+          "phi3.embedding_length": 5120,
+          "phi3.feed_forward_length": 17920,
+          "phi3.rope.dimension_count": 128,
+          "phi3.rope.freq_base": 250000,
+          "phi3.rope.scaling.original_context_length": 16384
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:12.406655+00:00",
+        "finished_at": "2026-11-06T18:11:12.879669+00:00"
+      }
+    },
+    {
+      "name": "qwen3-coder-next:latest",
+      "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+      "size_bytes": 51741611823,
+      "updated": "2026-11-06T12:11:15.179488916-06:00",
+      "observed_at": "2026-11-06T18:12:22.151550+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen3next",
+          "parameters          79.7B",
+          "context length      262144",
+          "embedding length    2048",
+          "quantization        Q4_K_M",
+          "requires            0.15.5",
+          "renderer            qwen3-coder",
+          "parser              qwen3-coder",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "Parameters": [
+          "top_p          0.95",
+          "temperature    1",
+          "top_k          40"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3next",
+          "families": [
+            "qwen3next"
+          ],
+          "parameter_size": "79.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "agentic coding",
+            "repository-scale development",
+            "tool calling",
+            "local development"
+          ],
+          "summary": "Hybrid-attention MoE coding model trained with executable tasks and environment interaction; the library describes it as non-thinking-only.",
+          "sources": [
+            "https://ollama.com/library/qwen3-coder-next"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen3next",
+          "general.file_type": 15,
+          "general.parameter_count": 79674391296,
+          "general.quantization_version": 2,
+          "qwen3next.attention.head_count": 16,
+          "qwen3next.attention.head_count_kv": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+          ],
+          "qwen3next.attention.key_length": 256,
+          "qwen3next.attention.layer_norm_rms_epsilon": 1e-06,
+          "qwen3next.attention.value_length": 256,
+          "qwen3next.block_count": 48,
+          "qwen3next.context_length": 262144,
+          "qwen3next.embedding_length": 2048,
+          "qwen3next.expert_count": 512,
+          "qwen3next.expert_feed_forward_length": 512,
+          "qwen3next.expert_shared_feed_forward_length": 512,
+          "qwen3next.expert_used_count": 10,
+          "qwen3next.feed_forward_length": 5120,
+          "qwen3next.full_attention_interval": 4,
+          "qwen3next.norm_top_k_prob": true,
+          "qwen3next.rope.dimension_count": 64,
+          "qwen3next.rope.freq_base": 5000000,
+          "qwen3next.ssm.conv_kernel": 4,
+          "qwen3next.ssm.group_count": 16,
+          "qwen3next.ssm.inner_size": 4096,
+          "qwen3next.ssm.state_size": 128,
+          "qwen3next.ssm.time_step_rank": 32
+        },
+        "thinking": {
+          "values": [
+            false
+          ],
+          "default": false
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:14.321940+00:00",
+        "finished_at": "2026-11-06T18:11:15.195467+00:00"
+      }
+    },
+    {
+      "name": "qwen3-coder:latest",
+      "digest": "06c1097efce0431c2045fe7b2e5108366e43bee1b4603a7aded8f21689e90bca",
+      "size_bytes": 18556700761,
+      "updated": "2026-11-06T12:11:19.924834194-06:00",
+      "observed_at": "2026-11-06T18:12:23.345693+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen3moe",
+          "parameters          30.5B",
+          "context length      262144",
+          "embedding length    2048",
+          "quantization        Q4_K_M",
+          "renderer            qwen3-coder",
+          "parser              qwen3-coder",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools"
+        ],
+        "Parameters": [
+          "repeat_penalty    1.05",
+          "stop              \"<|im_start|>\"",
+          "stop              \"<|im_end|>\"",
+          "stop              \"<|endoftext|>\"",
+          "temperature       0.7",
+          "top_k             20",
+          "top_p             0.8"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3moe",
+          "families": [
+            "qwen3moe"
+          ],
+          "parameter_size": "30.5B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools"
+        ],
+        "research": {
+          "intended_uses": [
+            "agentic software engineering",
+            "repository understanding",
+            "code generation",
+            "long-horizon coding"
+          ],
+          "summary": "Qwen's coding family emphasizes executable software tasks, repository context, and coding-agent workflows.",
+          "sources": [
+            "https://ollama.com/library/qwen3-coder"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen3moe",
+          "general.basename": "Qwen3-Coder",
+          "general.file_type": 15,
+          "general.finetune": "Instruct",
+          "general.license": "apache-2.0",
+          "general.license.link": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE",
+          "general.parameter_count": 30532122624,
+          "general.quantization_version": 2,
+          "general.size_label": "30B-A3B",
+          "general.tags": [
+            "text-generation"
+          ],
+          "general.type": "model",
+          "qwen3moe.attention.head_count": 32,
+          "qwen3moe.attention.head_count_kv": 4,
+          "qwen3moe.attention.key_length": 128,
+          "qwen3moe.attention.layer_norm_rms_epsilon": 1e-06,
+          "qwen3moe.attention.value_length": 128,
+          "qwen3moe.block_count": 48,
+          "qwen3moe.context_length": 262144,
+          "qwen3moe.embedding_length": 2048,
+          "qwen3moe.expert_count": 128,
+          "qwen3moe.expert_feed_forward_length": 768,
+          "qwen3moe.expert_shared_feed_forward_length": 0,
+          "qwen3moe.expert_used_count": 8,
+          "qwen3moe.feed_forward_length": 5472,
+          "qwen3moe.rope.freq_base": 10000000
+        },
+        "thinking": {
+          "values": [
+            false
+          ],
+          "default": false
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:16.666910+00:00",
+        "finished_at": "2026-11-06T18:11:19.994147+00:00"
+      }
+    },
+    {
+      "name": "qwen3.5:latest",
+      "digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "size_bytes": 7639229431,
+      "updated": "2026-11-06T11:06:50.784880216-06:00",
+      "observed_at": "2026-11-06T18:12:24.308749+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen3_5",
+          "parameters          9.7B",
+          "context length      262144",
+          "embedding length    4096",
+          "quantization        nvfp4",
+          "requires            0.22.0",
+          "renderer            qwen3.5",
+          "parser              qwen3.5",
+          "template source     renderer_parser"
+        ],
+        "Capabilities": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking",
+          "    levels     false, true",
+          "    default    true"
+        ],
+        "Parameters": [
+          "top_p                0.95",
+          "draft_num_predict    3",
+          "min_p                0",
+          "presence_penalty     1.5",
+          "repeat_penalty       1",
+          "temperature          1",
+          "top_k                20"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "safetensors",
+          "family": "qwen3_5",
+          "families": null,
+          "parameter_size": "9.7B",
+          "quantization_level": "nvfp4",
+          "runner": "mlx"
+        },
+        "supports": [
+          "completion",
+          "vision",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "visual understanding",
+            "reasoning",
+            "coding",
+            "agent workflows",
+            "multilingual assistance"
+          ],
+          "summary": "Qwen's multimodal family combines vision-language training with efficient hybrid architectures; check the installed variant.",
+          "sources": [
+            "https://ollama.com/library/qwen3.5"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen3_5",
+          "general.parameter_count": 9652759424,
+          "qwen3_5.block_count": 32,
+          "qwen3_5.context_length": 262144,
+          "qwen3_5.embedding_length": 4096
+        },
+        "thinking": {
+          "values": [
+            false,
+            true
+          ],
+          "default": true
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      }
+    },
+    {
+      "name": "qwen3:latest",
+      "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+      "size_bytes": 5225388164,
+      "updated": "2026-11-06T12:11:23.010785048-06:00",
+      "observed_at": "2026-11-06T18:12:25.426502+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen3",
+          "parameters          8.2B",
+          "context length      40960",
+          "embedding length    4096",
+          "quantization        Q4_K_M",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion",
+          "tools",
+          "thinking",
+          "    levels     false, true",
+          "    default    true"
+        ],
+        "Parameters": [
+          "repeat_penalty    1",
+          "stop              \"<|im_start|>\"",
+          "stop              \"<|im_end|>\"",
+          "temperature       0.6",
+          "top_k             20",
+          "top_p             0.95"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "8.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "completion",
+          "tools",
+          "thinking"
+        ],
+        "research": {
+          "intended_uses": [
+            "reasoning",
+            "code generation",
+            "creative writing",
+            "dialogue",
+            "instruction following",
+            "tool-integrated agents"
+          ],
+          "summary": "Qwen's dense and MoE language family covers reasoning, conversation, and agents; thinking behavior depends on checkpoint.",
+          "sources": [
+            "https://ollama.com/library/qwen3"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen3",
+          "general.basename": "Qwen3",
+          "general.file_type": 15,
+          "general.license": "apache-2.0",
+          "general.parameter_count": 8190735360,
+          "general.quantization_version": 2,
+          "general.size_label": "8B",
+          "general.type": "model",
+          "qwen3.attention.head_count": 32,
+          "qwen3.attention.head_count_kv": 8,
+          "qwen3.attention.key_length": 128,
+          "qwen3.attention.layer_norm_rms_epsilon": 1e-06,
+          "qwen3.attention.value_length": 128,
+          "qwen3.block_count": 36,
+          "qwen3.context_length": 40960,
+          "qwen3.embedding_length": 4096,
+          "qwen3.feed_forward_length": 12288,
+          "qwen3.rope.freq_base": 1000000
+        },
+        "thinking": {
+          "values": [
+            false,
+            true
+          ],
+          "default": true
+        },
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:22.606225+00:00",
+        "finished_at": "2026-11-06T18:11:23.030966+00:00"
+      }
+    },
+    {
+      "name": "qwq:latest",
+      "digest": "009cb3f08d74437380f3b84194c1bd34f1cc3d95a2bb87241d89387fc22a9ddf",
+      "size_bytes": 19851349657,
+      "updated": "2026-11-06T12:11:25.193839093-06:00",
+      "observed_at": "2026-11-06T18:12:26.443259+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen2",
+          "parameters          32.8B",
+          "context length      40960",
+          "embedding length    5120",
+          "quantization        Q4_K_M",
+          "template source     gguf_chat_template"
+        ],
+        "Capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ],
+        "Parameters": [
+          "repeat_penalty    1",
+          "stop              \"<|im_start|>\"",
+          "stop              \"<|im_end|>\"",
+          "temperature       0.6",
+          "top_k             40",
+          "top_p             0.95"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "32.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "tools",
+          "thinking",
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "difficult problem solving",
+            "reasoning"
+          ],
+          "summary": "Qwen's reasoning family includes QwQ-32B; preview and release tags are not necessarily the same checkpoint.",
+          "sources": [
+            "https://ollama.com/library/qwq"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen2",
+          "general.base_model.0.name": "Qwen2.5 32B",
+          "general.base_model.0.organization": "Qwen",
+          "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen2.5-32B",
+          "general.base_model.count": 1,
+          "general.basename": "QwQ",
+          "general.file_type": 15,
+          "general.languages": [
+            "en"
+          ],
+          "general.license": "apache-2.0",
+          "general.license.link": "https://huggingface.co/Qwen/QWQ-32B/blob/main/LICENSE",
+          "general.parameter_count": 32763876352,
+          "general.quantization_version": 2,
+          "general.size_label": "32B",
+          "general.tags": [
+            "chat",
+            "text-generation"
+          ],
+          "general.type": "model",
+          "qwen2.attention.head_count": 40,
+          "qwen2.attention.head_count_kv": 8,
+          "qwen2.attention.layer_norm_rms_epsilon": 1e-05,
+          "qwen2.block_count": 64,
+          "qwen2.context_length": 40960,
+          "qwen2.embedding_length": 5120,
+          "qwen2.feed_forward_length": 27648,
+          "qwen2.rope.freq_base": 1000000
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:24.742225+00:00",
+        "finished_at": "2026-11-06T18:11:25.212222+00:00"
+      }
+    },
+    {
+      "name": "r1-1776:latest",
+      "digest": "140ea940f21da6bed48cedf94f8ec8e33e4e4cfbf354a9cf2fa8dc5a9364ec1e",
+      "size_bytes": 42520398156,
+      "updated": "2026-11-06T12:11:27.622214671-06:00",
+      "observed_at": "2026-11-06T18:12:27.599262+00:00",
+      "details": {
+        "Model": [
+          "architecture        llama",
+          "parameters          70.6B",
+          "context length      131072",
+          "embedding length    8192",
+          "quantization        Q4_K_M",
+          "template source     gguf_chat_template"
+        ],
+        "Capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ],
+        "Parameters": [
+          "stop    \"<\uff5cbegin\u2581of\u2581sentence\uff5c>\"",
+          "stop    \"<\uff5cend\u2581of\u2581sentence\uff5c>\"",
+          "stop    \"<\uff5cUser\uff5c>\"",
+          "stop    \"<\uff5cAssistant\uff5c>\""
+        ],
+        "License": [
+          "MIT License",
+          "Copyright (c) [year] [fullname]",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "70.6B",
+          "quantization_level": "Q4_K_M"
+        },
+        "supports": [
+          "tools",
+          "thinking",
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "reasoning",
+            "general question answering",
+            "sensitive-topic queries"
+          ],
+          "summary": "Perplexity's post-trained DeepSeek-R1 derivative aims to reduce censorship-related refusals; publisher neutrality claims are not guarantees.",
+          "sources": [
+            "https://ollama.com/library/r1-1776"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "llama",
+          "general.base_model.0.name": "DeepSeek R1 Distill Llama 70B",
+          "general.base_model.0.organization": "Deepseek Ai",
+          "general.base_model.0.repo_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+          "general.base_model.count": 1,
+          "general.basename": "DeepSeek-R1-Distill-Llama",
+          "general.file_type": 15,
+          "general.license": "mit",
+          "general.organization": "Deepseek Ai",
+          "general.parameter_count": 70553706560,
+          "general.quantization_version": 2,
+          "general.size_label": "70B",
+          "general.type": "model",
+          "llama.attention.head_count": 64,
+          "llama.attention.head_count_kv": 8,
+          "llama.attention.key_length": 128,
+          "llama.attention.layer_norm_rms_epsilon": 1e-05,
+          "llama.attention.value_length": 128,
+          "llama.block_count": 80,
+          "llama.context_length": 131072,
+          "llama.embedding_length": 8192,
+          "llama.feed_forward_length": 28672,
+          "llama.rope.dimension_count": 128,
+          "llama.rope.freq_base": 500000,
+          "llama.vocab_size": 128256
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:27.208594+00:00",
+        "finished_at": "2026-11-06T18:11:27.650279+00:00"
+      }
+    },
+    {
+      "name": "smallthinker:latest",
+      "digest": "945eb1864589e3660344680304fd0b17e3a231521e6c5b8051f5b67d84586fcb",
+      "size_bytes": 3616095258,
+      "updated": "2026-11-06T12:11:29.666506256-06:00",
+      "observed_at": "2026-11-06T18:12:28.686729+00:00",
+      "details": {
+        "Model": [
+          "architecture        qwen2",
+          "parameters          3.4B",
+          "context length      32768",
+          "embedding length    2048",
+          "quantization        Q8_0",
+          "template source     go_template"
+        ],
+        "Capabilities": [
+          "completion"
+        ],
+        "System": [
+          "You are a helpful assistant."
+        ],
+        "License": [
+          "Qwen RESEARCH LICENSE AGREEMENT",
+          "Qwen RESEARCH LICENSE AGREEMENT Release Date: September 19, 2024",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "3.4B",
+          "quantization_level": "Q8_0"
+        },
+        "supports": [
+          "completion"
+        ],
+        "research": {
+          "intended_uses": [
+            "resource-constrained reasoning",
+            "edge deployment",
+            "draft modeling for QwQ-32B-Preview"
+          ],
+          "summary": "SmallThinker-3B-Preview is fine-tuned from Qwen2.5-3B-Instruct on long reasoning examples, distinct from other namesake checkpoints.",
+          "sources": [
+            "https://ollama.com/library/smallthinker"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "general.architecture": "qwen2",
+          "general.base_model.0.name": "Qwen2.5 3B Instruct",
+          "general.base_model.0.organization": "Qwen",
+          "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct",
+          "general.base_model.count": 1,
+          "general.basename": "SmallThinker",
+          "general.dataset.0.name": "QWQ LONGCOT 500K",
+          "general.dataset.0.organization": "PowerInfer",
+          "general.dataset.0.repo_url": "https://huggingface.co/PowerInfer/QWQ-LONGCOT-500K",
+          "general.dataset.count": 1,
+          "general.file_type": 7,
+          "general.finetune": "Preview",
+          "general.parameter_count": 3397103616,
+          "general.quantization_version": 2,
+          "general.size_label": "3B",
+          "general.type": "model",
+          "qwen2.attention.head_count": 16,
+          "qwen2.attention.head_count_kv": 2,
+          "qwen2.attention.layer_norm_rms_epsilon": 1e-06,
+          "qwen2.block_count": 36,
+          "qwen2.context_length": 32768,
+          "qwen2.embedding_length": 2048,
+          "qwen2.feed_forward_length": 11008,
+          "qwen2.rope.freq_base": 1000000
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:29.227929+00:00",
+        "finished_at": "2026-11-06T18:11:29.685724+00:00"
+      }
+    },
+    {
+      "name": "snowflake-arctic-embed:latest",
+      "digest": "21ab8b9b0545e26a78164a910691440a3f1de1bfa41c3953d7451d52036c581a",
+      "size_bytes": 669493195,
+      "updated": "2026-11-06T12:11:31.785871568-06:00",
+      "observed_at": "2026-11-06T18:12:29.835301+00:00",
+      "details": {
+        "Model": [
+          "architecture        bert",
+          "parameters          334M",
+          "context length      512",
+          "embedding length    1024",
+          "quantization        F16"
+        ],
+        "Capabilities": [
+          "embedding"
+        ],
+        "License": [
+          "Apache License",
+          "Version 2.0, January 2004",
+          "..."
+        ]
+      },
+      "metadata": {
+        "registry_details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "bert",
+          "families": [
+            "bert"
+          ],
+          "parameter_size": "334M",
+          "quantization_level": "F16"
+        },
+        "supports": [
+          "embedding"
+        ],
+        "research": {
+          "intended_uses": [
+            "text embeddings",
+            "semantic retrieval"
+          ],
+          "summary": "Snowflake's retrieval-specific embedding family in multiple sizes, not a generative chat model.",
+          "sources": [
+            "https://ollama.com/library/snowflake-arctic-embed"
+          ],
+          "researched_at": "2026-11-06T17:38:05Z"
+        },
+        "model_info": {
+          "bert.attention.causal": false,
+          "bert.attention.head_count": 16,
+          "bert.attention.layer_norm_epsilon": 1e-12,
+          "bert.block_count": 24,
+          "bert.context_length": 512,
+          "bert.embedding_length": 1024,
+          "bert.feed_forward_length": 4096,
+          "bert.pooling_type": 2,
+          "general.architecture": "bert",
+          "general.file_type": 1,
+          "general.parameter_count": 334092288
+        },
+        "thinking": null,
+        "remote_model": null,
+        "remote_host": null
+      },
+      "inspection_errors": [],
+      "pull": {
+        "status": "not_requested"
+      },
+      "last_pull": {
+        "status": "succeeded",
+        "attempted_at": "2026-11-06T18:11:31.067831+00:00",
+        "finished_at": "2026-11-06T18:11:31.810921+00:00"
+      }
+    }
+  ]
+}
