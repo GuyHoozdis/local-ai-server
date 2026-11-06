@@ -2,6 +2,8 @@
 
 See the [OpenWebUI docs](https://docs.openwebui.com/) and [Ollama docs](https://github.com/ollama/ollama?tab=readme-ov-file#ollama).
 
+For model updates and the local inventory, see [Ollama utilities](ollama/README.md).
+
 Running Ollama in a container on a Mac with Apple Silicon doesn't work.  Well, it can't leverage the 
 integrated GPU in the M1, M2, M3, ... chips because the pass through vitalization logic doesn't exist
 or doesn't work or can't work yet for some reason.

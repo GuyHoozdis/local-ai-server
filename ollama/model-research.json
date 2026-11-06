@@ -1,0 +1,278 @@
+{
+  "_metadata": {
+    "researched_at": "2026-11-06T17:38:05Z",
+    "scope": "Publisher descriptions on public Ollama library pages; family-level guidance, not local runtime measurements.",
+    "benchmark_caveat": "Scores are omitted: published results cannot be attributed to local models without matching the exact checkpoint, quantization, inference settings, evaluation harness, and source.",
+    "installation_caveat": "Capabilities, context limits, runtime requirements, and availability vary by tag and Ollama version. Local API capabilities take precedence over family descriptions."
+  },
+  "qwen3.5": {
+    "intended_uses": ["visual understanding", "reasoning", "coding", "agent workflows", "multilingual assistance"],
+    "summary": "Qwen's multimodal family combines vision-language training with efficient hybrid architectures; check the installed variant.",
+    "sources": ["https://ollama.com/library/qwen3.5"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "lfm2": {
+    "intended_uses": ["on-device language applications", "edge inference"],
+    "summary": "Liquid's hybrid family targets efficient on-device deployment. The current page emphasizes 24B-A2B, not every variant.",
+    "sources": ["https://ollama.com/library/lfm2"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "ministral-3": {
+    "intended_uses": ["edge deployment", "image analysis", "multilingual assistance", "function calling", "structured JSON"],
+    "summary": "Mistral's edge-oriented family advertises vision, multilingual interaction, native function calling, and JSON output.",
+    "sources": ["https://ollama.com/library/ministral-3"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "laguna-s-2.1": {
+    "intended_uses": ["agentic coding", "extended reasoning", "long-horizon software engineering", "tool calling"],
+    "summary": "Poolside's larger Laguna MoE model targets coding agents and interleaved reasoning, with substantial local memory needs.",
+    "sources": ["https://ollama.com/library/laguna-s-2.1"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "laguna-xs-2.1": {
+    "intended_uses": ["local agentic coding", "long-horizon development", "reasoning between tool calls"],
+    "summary": "Poolside's compact activated-parameter MoE targets local coding agents and optional interleaved thinking. The library warns of a macOS issue.",
+    "sources": ["https://ollama.com/library/laguna-xs-2.1"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "glm-5.2": {
+    "intended_uses": ["long-horizon coding", "project engineering", "complex debugging", "automated research"],
+    "summary": "Z.ai's model targets long-running engineering workflows with advertised long context and adjustable thinking effort.",
+    "sources": ["https://ollama.com/library/glm-5.2"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "ornith": {
+    "intended_uses": ["agentic coding", "software engineering agents"],
+    "summary": "An open coding-agent family whose training jointly optimizes agent scaffolds and solution trajectories.",
+    "sources": ["https://ollama.com/library/ornith"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "qwen3-coder-next": {
+    "intended_uses": ["agentic coding", "repository-scale development", "tool calling", "local development"],
+    "summary": "Hybrid-attention MoE coding model trained with executable tasks and environment interaction; the library describes it as non-thinking-only.",
+    "sources": ["https://ollama.com/library/qwen3-coder-next"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "glm-4.7": {
+    "intended_uses": ["agentic coding", "terminal tasks", "UI generation", "tool use", "reasoning"],
+    "summary": "Z.ai's coding-oriented family supports thinking before acting and coding-agent integrations. The installed cloud service reports retirement; its historical use cases do not establish current availability.",
+    "availability": {
+      "status": "retired_for_installed_cloud_tag",
+      "retired_on": "2026-07-15",
+      "suggested_replacement": "glm-5.3-flash:cloud",
+      "source": "Local ollama show glm-4.7:cloud response observed 2026-11-06; replacement not installed or evaluated."
+    },
+    "sources": ["https://ollama.com/library/glm-4.7"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "gpt-oss": {
+    "intended_uses": ["reasoning", "agent workflows", "function calling", "structured outputs"],
+    "summary": "OpenAI's open-weight reasoning family offers configurable reasoning effort and tool-driven applications. Distinguish 20B and 120B variants.",
+    "sources": ["https://ollama.com/library/gpt-oss", "https://ollama.com/library/gpt-oss:20b", "https://ollama.com/library/gpt-oss:latest"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "phi4-mini-reasoning": {
+    "intended_uses": ["multi-step mathematics", "formal proofs", "symbolic computation", "resource-constrained reasoning"],
+    "summary": "Microsoft's lightweight reasoning model targets logic-intensive mathematical tasks in constrained environments.",
+    "sources": ["https://ollama.com/library/phi4-mini-reasoning"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "phi4-reasoning": {
+    "intended_uses": ["complex reasoning", "mathematics", "scientific reasoning"],
+    "summary": "Microsoft's 14B reasoning and separately reinforced reasoning-plus variants have non-interchangeable evaluation results.",
+    "sources": ["https://ollama.com/library/phi4-reasoning"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "qwen3": {
+    "intended_uses": ["reasoning", "code generation", "creative writing", "dialogue", "instruction following", "tool-integrated agents"],
+    "summary": "Qwen's dense and MoE language family covers reasoning, conversation, and agents; thinking behavior depends on checkpoint.",
+    "sources": ["https://ollama.com/library/qwen3"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "qwen3-coder": {
+    "intended_uses": ["agentic software engineering", "repository understanding", "code generation", "long-horizon coding"],
+    "summary": "Qwen's coding family emphasizes executable software tasks, repository context, and coding-agent workflows.",
+    "sources": ["https://ollama.com/library/qwen3-coder"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "llama3.2": {
+    "intended_uses": ["multilingual dialogue", "summarization", "retrieval", "prompt rewriting", "edge assistance"],
+    "summary": "Meta's lightweight 1B and 3B text-only models; image understanding belongs to llama3.2-vision.",
+    "sources": ["https://ollama.com/library/llama3.2"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "mistral": {
+    "intended_uses": ["instruction following", "text completion", "general language tasks", "function calling"],
+    "summary": "This entry is Mistral 7B, not every Mistral-branded model. Instruct/completion variants differ; function calling is documented for v0.3.",
+    "sources": ["https://ollama.com/library/mistral"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "codegemma": {
+    "intended_uses": ["code completion", "fill-in-the-middle", "code generation", "natural-language-to-code"],
+    "summary": "Google's lightweight coding family has distinct pretrained completion and instruction-tuned chat variants.",
+    "sources": ["https://ollama.com/library/codegemma"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "nomic-embed-text": {
+    "intended_uses": ["text embeddings", "semantic retrieval"],
+    "summary": "Long-context text encoder for embeddings, not conversational generation.",
+    "sources": ["https://ollama.com/library/nomic-embed-text"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "codellama": {
+    "intended_uses": ["code generation", "code explanation", "code completion", "Python assistance"],
+    "summary": "Meta's Llama-2-derived coding family includes instruct, Python-specialized, and base completion variants.",
+    "sources": ["https://ollama.com/library/codellama"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "codestral": {
+    "intended_uses": ["code generation", "function completion", "test writing", "fill-in-the-middle"],
+    "summary": "This entry describes Mistral's 22B coding model trained across more than 80 languages, not later API-only namesakes.",
+    "sources": ["https://ollama.com/library/codestral"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "llama-guard3": {
+    "intended_uses": ["prompt safety classification", "response safety classification", "content moderation", "tool-call assessment"],
+    "summary": "Meta's classifier emits safe/unsafe judgments and hazard categories; it is not a general assistant or a safety guarantee.",
+    "sources": ["https://ollama.com/library/llama-guard3"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "gemma": {
+    "intended_uses": ["text generation", "general language modeling"],
+    "summary": "Google's original lightweight Gemma family, separate from Gemma 2 and later generations.",
+    "sources": ["https://ollama.com/library/gemma"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "gemma2": {
+    "intended_uses": ["text generation", "conversation", "summarization", "language learning", "question answering"],
+    "summary": "Google's second-generation Gemma models target text-focused assistant, content, research, and educational applications.",
+    "sources": ["https://ollama.com/library/gemma2"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "deepseek-coder-v2": {
+    "intended_uses": ["code generation", "coding assistance"],
+    "summary": "DeepSeek's MoE coding family; Lite and full-size results must not be conflated.",
+    "sources": ["https://ollama.com/library/deepseek-coder-v2"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "snowflake-arctic-embed": {
+    "intended_uses": ["text embeddings", "semantic retrieval"],
+    "summary": "Snowflake's retrieval-specific embedding family in multiple sizes, not a generative chat model.",
+    "sources": ["https://ollama.com/library/snowflake-arctic-embed"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "mxbai-embed-large": {
+    "intended_uses": ["text embeddings", "semantic passage retrieval"],
+    "summary": "Mixedbread's retrieval encoder; the library demonstrates an instruction prefix for search queries.",
+    "sources": ["https://ollama.com/library/mxbai-embed-large"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "llama3.2-vision": {
+    "intended_uses": ["visual recognition", "image reasoning", "captioning", "visual question answering"],
+    "summary": "Meta's 11B and 90B models accept text/images and return text; the library specifies English for image-plus-text applications.",
+    "sources": ["https://ollama.com/library/llama3.2-vision"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "llama3.3": {
+    "intended_uses": ["multilingual dialogue", "assistant applications", "tool-integrated applications"],
+    "summary": "Meta's 70B text-only instruction model is optimized for multilingual dialogue; tools require integration.",
+    "sources": ["https://ollama.com/library/llama3.3"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "smallthinker": {
+    "intended_uses": ["resource-constrained reasoning", "edge deployment", "draft modeling for QwQ-32B-Preview"],
+    "summary": "SmallThinker-3B-Preview is fine-tuned from Qwen2.5-3B-Instruct on long reasoning examples, distinct from other namesake checkpoints.",
+    "sources": ["https://ollama.com/library/smallthinker"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "granite3.1-dense": {
+    "intended_uses": ["RAG", "summarization", "question answering", "text extraction", "coding", "function calling"],
+    "summary": "IBM's text-only dense 2B/8B models target tool-based applications and long-document processing.",
+    "sources": ["https://ollama.com/library/granite3.1-dense"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "granite3.1-moe": {
+    "intended_uses": ["low-latency on-device assistance", "RAG", "summarization", "question answering", "coding", "function calling"],
+    "summary": "IBM's long-context 1B/3B MoE models target low-latency deployment and multilingual document/tool applications.",
+    "sources": ["https://ollama.com/library/granite3.1-moe"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "llava": {
+    "intended_uses": ["visual conversation", "image understanding", "visual reasoning", "OCR"],
+    "summary": "Vision-language assistant family; LLaVA 1.6 improves image resolution, reasoning, and OCR.",
+    "sources": ["https://ollama.com/library/llava"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "qwq": {
+    "intended_uses": ["difficult problem solving", "reasoning"],
+    "summary": "Qwen's reasoning family includes QwQ-32B; preview and release tags are not necessarily the same checkpoint.",
+    "sources": ["https://ollama.com/library/qwq"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "phi4": {
+    "intended_uses": ["reasoning and logic", "general-purpose English assistance", "resource-constrained generation"],
+    "summary": "Microsoft's 14B instruction model primarily targets English and constrained deployment; distinct from Phi-4-reasoning.",
+    "sources": ["https://ollama.com/library/phi4"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "phi4-mini": {
+    "intended_uses": ["multilingual assistance", "mathematics and logic", "function calling", "resource-constrained applications"],
+    "summary": "Microsoft's lightweight Phi-4-mini-instruct targets multilingual commercial/research applications with function calling.",
+    "sources": ["https://ollama.com/library/phi4-mini"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "granite3.2": {
+    "intended_uses": ["business assistants", "optional thinking", "RAG", "summarization", "question answering", "coding", "function calling"],
+    "summary": "IBM's long-context 2B/8B models build on Granite 3.1 with controllable thinking.",
+    "sources": ["https://ollama.com/library/granite3.2"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "r1-1776": {
+    "intended_uses": ["reasoning", "general question answering", "sensitive-topic queries"],
+    "summary": "Perplexity's post-trained DeepSeek-R1 derivative aims to reduce censorship-related refusals; publisher neutrality claims are not guarantees.",
+    "sources": ["https://ollama.com/library/r1-1776"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "deepseek-v2.5": {
+    "intended_uses": ["general assistance", "writing", "instruction following", "coding"],
+    "summary": "Combines DeepSeek-V2-Chat conversational capabilities with DeepSeek-Coder-V2-Instruct coding capabilities.",
+    "sources": ["https://ollama.com/library/deepseek-v2.5"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "devstral": {
+    "intended_uses": ["software engineering agents", "tool-based codebase exploration", "multi-file editing"],
+    "summary": "Mistral and All Hands AI's text-only 24B agentic coding model derives from Mistral Small 3.1 with its vision encoder removed.",
+    "sources": ["https://ollama.com/library/devstral"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "llama4": {
+    "intended_uses": ["multilingual assistance", "visual reasoning", "image recognition", "captioning", "visual question answering"],
+    "summary": "Meta's multimodal MoE collection includes Scout/Maverick, accepting text/images and generating text/code; variant specs differ.",
+    "sources": ["https://ollama.com/library/llama4"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "gemma3": {
+    "intended_uses": ["question answering", "summarization", "reasoning", "multilingual assistance", "image understanding in vision variants"],
+    "summary": "Google's family has text-only 270M/1B and image-capable 4B/12B/27B variants; vision/context claims are variant-specific.",
+    "sources": ["https://ollama.com/library/gemma3"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "deepseek-r1": {
+    "intended_uses": ["mathematical reasoning", "programming", "logical problem solving"],
+    "summary": "Includes a full MoE and distinct dense distillations. The full-model and Qwen3-derived 8B 0528 updates are not equivalent to other distilled tags.",
+    "sources": ["https://ollama.com/library/deepseek-r1"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "gemma3n": {
+    "intended_uses": ["on-device generative AI", "resource-efficient content generation"],
+    "summary": "Device-oriented instruction models use selective parameter activation and effective E2B/E4B sizes, not those total parameter counts. Local image/audio availability was not verified; upstream model-card retrieval failed.",
+    "sources": ["https://ollama.com/library/gemma3n"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  },
+  "exaone-deep": {
+    "intended_uses": ["mathematical reasoning", "coding", "complex reasoning"],
+    "summary": "LG AI Research's reasoning family spans 2.4B/7.8B/32B models; results remain specific to the evaluated variant.",
+    "sources": ["https://ollama.com/library/exaone-deep"],
+    "researched_at": "2026-11-06T17:38:05Z"
+  }
+}

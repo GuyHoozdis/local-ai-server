@@ -24,6 +24,7 @@ it is not evidence of a particular local variant's benchmark performance.
 
 Digests identify the observed manifests and expose duplicate tags. They are **not** a
 restorable lock: mutable tags can change and registries may not support pulling old digests.
+For cloud-backed tags, a digest identifies the local routing manifest, not remote weights.
 No separate checksum is needed for the Git-tracked inventory.
 
 Snapshots are replaced atomically after each model. Interrupted runs retain `in_progress`
